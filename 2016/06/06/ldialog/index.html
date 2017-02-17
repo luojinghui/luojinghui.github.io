@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://luojinghui.github.io/2016/06/06/ldialog/index.html">
 <meta property="og:site_name" content="Luojh的博客">
 <meta property="og:description" content="LDialog-强大的jquery弹窗插件,蒙版插件">
-<meta property="og:updated_time" content="2017-02-17T03:09:38.000Z">
+<meta property="og:updated_time" content="2017-02-17T03:17:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LDialog-强大的jquery弹窗插件">
 <meta name="twitter:description" content="LDialog-强大的jquery弹窗插件,蒙版插件">
@@ -165,118 +165,422 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="LDialog-Plugin"><a href="#LDialog-Plugin" class="headerlink" title="LDialog Plugin"></a>LDialog Plugin</h1><h3 id="LDialog-Plugin-介绍"><a href="#LDialog-Plugin-介绍" class="headerlink" title="LDialog Plugin 介绍"></a>LDialog Plugin 介绍</h3><p>此插件基于jquery开发，能够适用于所有的弹出对话，弹出，确认，tip，msg提示框等。支持主流浏览器。</p>
+        <p>此插件基于jquery开发，能够适用于所有的弹出对话，弹出，确认，tip，msg提示框等。支持主流浏览器。</p>
 <h3 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install"></a>How to install</h3><ul>
 <li><p>npm</p>
-  <figure class="highlight plain"><figcaption><span>install --save-dev ldialog```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">* bower</div><div class="line">    </div><div class="line">    ```bower install --save-dev ldialog</div></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev ldialog</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>bower</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install --save-dev ldialog</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><ul>
-<li><p>在头部引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">	</div></pre></td></tr></table></figure></p>
-<p>  <link rel="stylesheet" href="../css/ldialog.css"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* 引入jquery以及ldialog.js文件：</div></pre></td></tr></table></figure>
-<p>  <script src="../js/jquery.min.js"></script><br>  <script src="../js/ldialog.js"></script></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当在监听事件中需要弹出对话框或蒙版时，实例化一个蒙版，并初始化,例如：</div></pre></td></tr></table></figure>
-<p>  var dialog = new LDialog(“test2”, {footer: false}, {btn: {sure: “btn-info”}});<br>  dialog.init();</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">###   LDialog参数说明</div><div class="line"></div><div class="line"> new LDialog（arg1, arg2, arg3）可以传入（选填）三个参数：</div><div class="line"></div><div class="line">####   arg1 (字符串)</div><div class="line"></div><div class="line">| 参数名        | 数据类型           | 默认值  |   描述  | 备注 | </div><div class="line">|:---------------|:---------------|:-------|:---------:|:------:|</div><div class="line">| arg1     | String | null | 重写蒙版显示内容| 可以是纯文本，也可以是html代码|</div><div class="line"></div><div class="line"></div><div class="line">#### arg2 (对象)</div><div class="line"></div><div class="line">| 参数名        | 数据类型           | 默认值  |   描述  | 备注 |</div><div class="line">|:---------------|:---------------|:-------|:---------:|:----|</div><div class="line">| bg | String | &quot;&quot; | 定义蒙版背景颜色，默认为白色背景 ||</div><div class="line">| btn | Obj | &#123; &#125; | 定义按钮组 | 可定义两个按钮，对应的参数是：sure和cancel |</div><div class="line">| | | sure | 定义确定按钮样式，值既可以引用已写好的class，也可以为按钮的颜色值；若只需要其中某一个按钮，只定义一个即可  | 例如：sure: &quot;l-btn-default&quot; 或者 sure: &quot;red&quot; |</div><div class="line">| | | cancel | 定义取消按钮样式，用法和sure相同  | 例如：cancel: &quot;l-btn-default&quot; 或者 cancel: &quot;#eeeeee&quot; |</div><div class="line">| cancelTitle | String | &quot;取消&quot; | 重写蒙版底部取消按钮显示文字||</div><div class="line">| sureTitle     | String | “确定” | 重写蒙版底部确定按钮显示文字||</div><div class="line">| enterAni | String | &quot;fadeIn&quot; | 定义蒙版进入动画 | 可自定义引入animate.css动画库的动画class，插件预加载了常用的几种动画 |</div><div class="line">| fontColor | String | &quot;&quot; | 定义蒙版字体颜色 ||</div><div class="line">| footer | boolean | true | 定义蒙版底部按钮组框架是否显示 ||</div><div class="line">| globalClose | boolean | false | 定义蒙版是否全局关闭 | 点击蒙版以外区域关闭蒙版|</div><div class="line">| header | boolean | true | 定义蒙版标题模块是否显示 ||</div><div class="line">| icon | boolean | true | 定义蒙版内容块图标是否显示 ||</div><div class="line">| iconColor | String | null | 定义内容块左边图标大小 | |</div><div class="line">| iconData | String | null | 定义图标源|  若arg3参数也定义此参数，以arg2参数定义为准|</div><div class="line">| iconSize | String | null | 定义内容块左边图标大小 | |</div><div class="line">| minHeight | String | &quot;50px&quot; | 定义蒙版最低高度| |</div><div class="line">| move | boolean | true | 定义蒙版是否支持拖拽 | |</div><div class="line">| moveType | Number | 1 | 定义蒙版拖拽方式，可选1或者2 | 1代表经典方式，2代表黑框方式|</div><div class="line">| moveOut | boolean | false | 定义蒙版是否可以拖拽出显示区域 | 默认不可以|</div><div class="line">| onCancel |function | null | 点击取消按钮的回调函数||</div><div class="line">| onClose | function | null | 点击关闭按钮的回调函数 ||</div><div class="line">| onGClose | function | null | 点击全局关闭回调函数 ||</div><div class="line">| onIsNull(posi,i) | function | true | input输入框回调函数,参数posi为当前input的选择器，i代表此input的序号，函数默认返回true||</div><div class="line">| onSure(data) | function | null | 点击确定按钮的回调函数,可选data参数，获得所有蒙版input输入框的中的值，以数组形式展现| |</div><div class="line">| onSureBefore | function | null | 点击确定按钮前执行的回调函数 | 和onSure相比，此函数执行时动画效果还未执行|</div><div class="line">| onTimeOut | function | null | 倒计时完毕后的回调函数 | |</div><div class="line">| opacity | Number | 0.5 | 定义蒙版透明度 | |</div><div class="line">| outline | boolean | false | 定义是否显示outline效果 | 类似facebook蒙版效果,常用于操作成功的提示信息 |</div><div class="line">| radius | Strig | &quot;2px&quot; | 定义蒙版的圆角 | |</div><div class="line">| shadow | String | &quot;&quot; | 定义蒙版阴影||</div><div class="line">| subtitle | String | null | 定义副标题内容 ||</div><div class="line">| timeOut | Number | -1 | 定义蒙版显示多长时间后消失 | 默认使用-1代表不消失 |</div><div class="line">| title | String | &quot;初始化标题&quot; | 定义蒙版标题 | 若arg3参数也定义此参数，以arg2参数定义为准|</div><div class="line">| verCenter | boolean | true | 定义蒙版是否居中显示 | 默认居中，当不居中时，默认距顶部40px |</div><div class="line">| width | String | &quot;450px&quot; | 定义蒙版宽度 | |</div><div class="line">| input | Array | [ ] | 定义输入框组 | 可配置多个输入框组，参数如下： |</div><div class="line">| | | verCenter | 默认：false | 输入框组居中显示，设置为真时，leftInfo参数不可用 |</div><div class="line">| | | value | 默认：&quot;&quot;  | 输入框组设定value值 |</div><div class="line">| | | placeH | 默认：&quot;&quot;  | 默认input显示内容 |</div><div class="line">| | | maxlength | 默认：&quot;&quot;  | 输入最多长度字符数 |</div><div class="line">| | | type | 默认：&quot;text&quot;  | 设置输入类型，例如：text，textarea，date， email... |</div><div class="line">| | | notNull | 默认：false  | 设置是否为空 |</div><div class="line">| | | leftInfo | 默认：&quot;&quot;  | 设置input左边文字 |</div><div class="line"></div><div class="line">说明：</div><div class="line"></div><div class="line">*   内容左边引用的是字体图标，属性是iconData，插件默认引用了52个常用的字体图标，下面有预览入口，用法如图：</div><div class="line"></div><div class="line">	进入查看图片：[传送门](http://luojinghui.github.io/LDialog/img/123.jpg)</div><div class="line"></div><div class="line">#### arg3(对象、字符串)</div><div class="line"></div><div class="line">已经预定义了几组类型的蒙版显示效果，分别是：</div><div class="line"></div><div class="line">**info、 success 、error 、 confirm 、 input 、 bim、 custom**</div><div class="line"></div><div class="line">**当使用时，直接赋值给arg3参数相应的字符串即可。**</div><div class="line"></div><div class="line">具体形式如下：</div></pre></td></tr></table></figure>
-<p>  var popType = {</p>
-<pre><code>info: {
-    title: &quot;信息&quot;,
-    btn: {
-        sure: &quot;l-btn-info&quot;,
-        cancel: &quot;l-btn-default&quot;
-    },
-    iconData: &quot;&quot;
-},
-success: {
-    title: &quot;成功&quot;,
-    btn: {
-        sure: &quot;l-btn-success&quot;,
-        cancel: &quot;l-btn-default&quot;
-    },
-    iconData: &quot;&quot;,
-    iconColor: &quot;#56BD9D&quot;
-},
-error: {
-    title: &quot;错误&quot;,
-    btn: {
-        sure: &quot;l-btn-error&quot;,
-        cancel: &quot;l-btn-default&quot;
-    },
-    iconData: &quot;&quot;,
-    iconColor: &quot;#c9302c&quot;
-},
-confirm: {
-    title: &quot;提示&quot;,
-    btn: {
-        sure: &quot;l-btn-warning&quot;,
-        cancel: &quot;l-btn-default&quot;
-    },
-    iconData: &quot;&quot;,
-    iconColor: &quot;#F0AD4E&quot;
-},
-input: {
-    title: &quot;输入&quot;,
-    btn: {
-        sure: &quot;l-btn-primary&quot;,
-        cancel: &quot;l-btn-default&quot;
-    }
-},
-bim: {
-    title: &quot;提示&quot;,
-    btn: {
-        sure: &quot;l-btn-bim&quot;,
-        cancel: &quot;l-btn-default&quot;
-    }
-},
-custom: {
-    title: &quot;初始化标题&quot;,
-    btn: {
-        sure: &quot;l-btn-primary&quot;,
-        cancel: &quot;l-btn-default&quot;
-    }
-}
-</code></pre><p>  };    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">按钮组预定了6组：</div><div class="line"></div><div class="line">**l-btn-default 、 l-btn-primary 、 l-btn-error 、 l-btn-success 、 l-btn-info、 l-btn-warning**</div><div class="line"></div><div class="line">样式可在底部demo页面中查看</div><div class="line"></div><div class="line">### 方法介绍（最常使用）</div><div class="line"></div><div class="line">*   **LDialog.prompt(value, con, fun)**</div><div class="line"></div><div class="line">弹出类似系统的prompt对话框，默认含有一个input输入框。</div><div class="line"></div><div class="line">value：必填，显示的文字，可以为空。</div><div class="line"></div><div class="line">con： 选填，配置样式，可使用插件**arg2**的参数</div><div class="line"></div><div class="line">fun： 选填，确认按钮的回调函数，用来获得数据，处理数据</div><div class="line"></div><div class="line">example：</div></pre></td></tr></table></figure>
-<pre><code>var con = {
-    input: [{
-        type: &quot;textarea&quot;
-    }],
-    width: &quot;400px&quot;,
-    onIsNull: function(position, i) {
-        if(position.val() === &quot;&quot;) {
-            position.focus();
-            LDialog.tips(&quot;请输入正确的值,&quot;,position, {posi: 2});
-            return false;
-        }
-        return true;
-    }
-};
-LDialog.prompt(&quot;&quot;, con, function(v) {
-    if(v[0] !== &quot;&quot;) {
-        LDialog.closeAllTips();
-        console.log(v);
-    }
-});
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*    **LDialog.alert(value, con, fun)**</div><div class="line"></div><div class="line">example:</div></pre></td></tr></table></figure>
-<pre><code>LDialog.alert(&quot;123123123123123&quot;);
-
-LDialog.alert(&quot;123123123123123&quot;, function() {
-    console.log(&quot;点击确定按钮了！&quot;);
-});
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">和p</div><div class="line">rompt方法使用相同，但是alert只有确定按钮，没有input输入框。</div><div class="line"></div><div class="line">*    **LDialog.confirm(value, con, fun)**</div><div class="line"></div><div class="line">example:</div></pre></td></tr></table></figure>
-<pre><code>LDialog.confirm(value, {iconData: &quot;&quot;}, function() {
-    LDialog.msg(&quot;删除成功！&quot;, {iconData: &quot;&quot;, iconColor: &quot;green&quot;, iconSize: &quot;30px&quot;});
-});
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">和prompt方法使用相同，但是confirm没有input输入框。</div><div class="line"></div><div class="line">*    **LDialog.msg(value, con, fun)**</div><div class="line"></div><div class="line">value：必填，显示的文字，可以为空。</div><div class="line"></div><div class="line">con： 选填，配置样式，可使用插件**arg2**的参数</div><div class="line"></div><div class="line">fun： 选填，倒计时过后的回调函数，用来阻断函数执行。</div><div class="line"></div><div class="line">example:</div></pre></td></tr></table></figure>
-<p>  LDialog.msg(“删除成功！”, {iconData: “”}, function() {</p>
-<pre><code>console.log(123);    
-</code></pre><p>  });</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">*    **LDialog.tip(value, con, fun)**</div><div class="line"></div><div class="line">和msg方法使用相同，但样式不同。</div><div class="line"></div><div class="line">*    **LDialog.tips(value, selector, con)**</div><div class="line"></div><div class="line">value：必填，显示的文字，可以为空。</div><div class="line"></div><div class="line">selector： 必填，显示tips出现的位置，可以为任意jquery的选择器。</div><div class="line"></div><div class="line">con： 选填，用来配置tips显示效果，具体参数如下：</div></pre></td></tr></table></figure>
-<p> posi: 2,  //默认显示在选择器的右边位置，可定义分别对应的位置： 1：上， 2： 右， 3： 下， 4： 左<br> bg: “#000”,  //定义tips背景色，默认为黑色<br> color: “#fff”, //定义tips文字颜色，默认为白色<br> maxWidth: “150”, //定义tips最大宽度，默认为150px<br> timeOut: 2000, //定义tips多少秒后消失。<br> tipsClose: $.noop //定义tips倒计时回调函数<br>```     </p>
+<li><p>在头部引入<code>ldialog.css</code>或者压缩过的<code>ldialog.min.css</code>文件,**同时将fonts字体图标文件放置在css同级目录中。 </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/ldialog.css&quot;/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>引入jquery以及ldialog.js文件：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;../js/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;../js/ldialog.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="Live-Demo"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</h3><p>插件demo：<a href="http://luojinghui.github.io/LDialog/html/index.html">传送门</a></p>
+<p>当在监听事件中需要弹出对话框或蒙版时，实例化一个蒙版，并初始化,例如：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dialog = new LDialog(&quot;test2&quot;, &#123;footer: false&#125;, &#123;btn: &#123;sure: &quot;btn-info&quot;&#125;&#125;);</div><div class="line">dialog.init();</div></pre></td></tr></table></figure>
+</code></pre><h3 id="LDialog参数说明"><a href="#LDialog参数说明" class="headerlink" title="LDialog参数说明"></a>LDialog参数说明</h3><p> new LDialog（arg1, arg2, arg3）可以传入（选填）三个参数：</p>
+<h4 id="arg1-字符串"><a href="#arg1-字符串" class="headerlink" title="arg1 (字符串)"></a>arg1 (字符串)</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">arg1</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">重写蒙版显示内容</td>
+<td style="text-align:center">可以是纯文本，也可以是html代码</td>
+</tr>
+</tbody>
+</table>
+<h4 id="arg2-对象"><a href="#arg2-对象" class="headerlink" title="arg2 (对象)"></a>arg2 (对象)</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bg</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“”</td>
+<td style="text-align:center">定义蒙版背景颜色，默认为白色背景</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">btn</td>
+<td style="text-align:left">Obj</td>
+<td style="text-align:left">{ }</td>
+<td style="text-align:center">定义按钮组</td>
+<td style="text-align:left">可定义两个按钮，对应的参数是：sure和cancel</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">sure</td>
+<td style="text-align:center">定义确定按钮样式，值既可以引用已写好的class，也可以为按钮的颜色值；若只需要其中某一个按钮，只定义一个即可</td>
+<td style="text-align:left">例如：sure: “l-btn-default” 或者 sure: “red”</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">cancel</td>
+<td style="text-align:center">定义取消按钮样式，用法和sure相同</td>
+<td style="text-align:left">例如：cancel: “l-btn-default” 或者 cancel: “#eeeeee”</td>
+</tr>
+<tr>
+<td style="text-align:left">cancelTitle</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“取消”</td>
+<td style="text-align:center">重写蒙版底部取消按钮显示文字</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">sureTitle</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“确定”</td>
+<td style="text-align:center">重写蒙版底部确定按钮显示文字</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">enterAni</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“fadeIn”</td>
+<td style="text-align:center">定义蒙版进入动画</td>
+<td style="text-align:left">可自定义引入animate.css动画库的动画class，插件预加载了常用的几种动画</td>
+</tr>
+<tr>
+<td style="text-align:left">fontColor</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“”</td>
+<td style="text-align:center">定义蒙版字体颜色</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">footer</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">true</td>
+<td style="text-align:center">定义蒙版底部按钮组框架是否显示</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">globalClose</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">false</td>
+<td style="text-align:center">定义蒙版是否全局关闭</td>
+<td style="text-align:left">点击蒙版以外区域关闭蒙版</td>
+</tr>
+<tr>
+<td style="text-align:left">header</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">true</td>
+<td style="text-align:center">定义蒙版标题模块是否显示</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">icon</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">true</td>
+<td style="text-align:center">定义蒙版内容块图标是否显示</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">iconColor</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">定义内容块左边图标大小</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">iconData</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">定义图标源</td>
+<td style="text-align:left">若arg3参数也定义此参数，以arg2参数定义为准</td>
+</tr>
+<tr>
+<td style="text-align:left">iconSize</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">定义内容块左边图标大小</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">minHeight</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“50px”</td>
+<td style="text-align:center">定义蒙版最低高度</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">move</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">true</td>
+<td style="text-align:center">定义蒙版是否支持拖拽</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">moveType</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left">1</td>
+<td style="text-align:center">定义蒙版拖拽方式，可选1或者2</td>
+<td style="text-align:left">1代表经典方式，2代表黑框方式</td>
+</tr>
+<tr>
+<td style="text-align:left">moveOut</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">false</td>
+<td style="text-align:center">定义蒙版是否可以拖拽出显示区域</td>
+<td style="text-align:left">默认不可以</td>
+</tr>
+<tr>
+<td style="text-align:left">onCancel</td>
+<td style="text-align:left">function</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">点击取消按钮的回调函数</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">onClose</td>
+<td style="text-align:left">function</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">点击关闭按钮的回调函数</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">onGClose</td>
+<td style="text-align:left">function</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">点击全局关闭回调函数</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">onIsNull(posi,i)</td>
+<td style="text-align:left">function</td>
+<td style="text-align:left">true</td>
+<td style="text-align:center">input输入框回调函数,参数posi为当前input的选择器，i代表此input的序号，函数默认返回true</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">onSure(data)</td>
+<td style="text-align:left">function</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">点击确定按钮的回调函数,可选data参数，获得所有蒙版input输入框的中的值，以数组形式展现</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">onSureBefore</td>
+<td style="text-align:left">function</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">点击确定按钮前执行的回调函数</td>
+<td style="text-align:left">和onSure相比，此函数执行时动画效果还未执行</td>
+</tr>
+<tr>
+<td style="text-align:left">onTimeOut</td>
+<td style="text-align:left">function</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">倒计时完毕后的回调函数</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">opacity</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left">0.5</td>
+<td style="text-align:center">定义蒙版透明度</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">outline</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">false</td>
+<td style="text-align:center">定义是否显示outline效果</td>
+<td style="text-align:left">类似facebook蒙版效果,常用于操作成功的提示信息</td>
+</tr>
+<tr>
+<td style="text-align:left">radius</td>
+<td style="text-align:left">Strig</td>
+<td style="text-align:left">“2px”</td>
+<td style="text-align:center">定义蒙版的圆角</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">shadow</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“”</td>
+<td style="text-align:center">定义蒙版阴影</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">subtitle</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">null</td>
+<td style="text-align:center">定义副标题内容</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">timeOut</td>
+<td style="text-align:left">Number</td>
+<td style="text-align:left">-1</td>
+<td style="text-align:center">定义蒙版显示多长时间后消失</td>
+<td style="text-align:left">默认使用-1代表不消失</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“初始化标题”</td>
+<td style="text-align:center">定义蒙版标题</td>
+<td style="text-align:left">若arg3参数也定义此参数，以arg2参数定义为准</td>
+</tr>
+<tr>
+<td style="text-align:left">verCenter</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">true</td>
+<td style="text-align:center">定义蒙版是否居中显示</td>
+<td style="text-align:left">默认居中，当不居中时，默认距顶部40px</td>
+</tr>
+<tr>
+<td style="text-align:left">width</td>
+<td style="text-align:left">String</td>
+<td style="text-align:left">“450px”</td>
+<td style="text-align:center">定义蒙版宽度</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">input</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left">[ ]</td>
+<td style="text-align:center">定义输入框组</td>
+<td style="text-align:left">可配置多个输入框组，参数如下：</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">verCenter</td>
+<td style="text-align:center">默认：false</td>
+<td style="text-align:left">输入框组居中显示，设置为真时，leftInfo参数不可用</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">value</td>
+<td style="text-align:center">默认：””</td>
+<td style="text-align:left">输入框组设定value值</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">placeH</td>
+<td style="text-align:center">默认：””</td>
+<td style="text-align:left">默认input显示内容</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">maxlength</td>
+<td style="text-align:center">默认：””</td>
+<td style="text-align:left">输入最多长度字符数</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">type</td>
+<td style="text-align:center">默认：”text”</td>
+<td style="text-align:left">设置输入类型，例如：text，textarea，date， email…</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">notNull</td>
+<td style="text-align:center">默认：false</td>
+<td style="text-align:left">设置是否为空</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">leftInfo</td>
+<td style="text-align:center">默认：””</td>
+<td style="text-align:left">设置input左边文字</td>
+</tr>
+</tbody>
+</table>
+<p>说明：</p>
+<ul>
+<li><p>内容左边引用的是字体图标，属性是iconData，插件默认引用了52个常用的字体图标，下面有预览入口，用法如图：</p>
+<p>进入查看图片：<a href="http://luojinghui.github.io/LDialog/img/123.jpg">传送门</a></p>
+</li>
+</ul>
+<h4 id="arg3-对象、字符串"><a href="#arg3-对象、字符串" class="headerlink" title="arg3(对象、字符串)"></a>arg3(对象、字符串)</h4><p>已经预定义了几组类型的蒙版显示效果，分别是：</p>
+<p><strong>info、 success 、error 、 confirm 、 input 、 bim、 custom</strong></p>
+<p><strong>当使用时，直接赋值给arg3参数相应的字符串即可。</strong></p>
+<p>具体形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">var popType = &#123;</div><div class="line">    info: &#123;</div><div class="line">        title: &quot;信息&quot;,</div><div class="line">        btn: &#123;</div><div class="line">            sure: &quot;l-btn-info&quot;,</div><div class="line">            cancel: &quot;l-btn-default&quot;</div><div class="line">        &#125;,</div><div class="line">        iconData: &quot;&quot;</div><div class="line">    &#125;,</div><div class="line">    success: &#123;</div><div class="line">        title: &quot;成功&quot;,</div><div class="line">        btn: &#123;</div><div class="line">            sure: &quot;l-btn-success&quot;,</div><div class="line">            cancel: &quot;l-btn-default&quot;</div><div class="line">        &#125;,</div><div class="line">        iconData: &quot;&quot;,</div><div class="line">        iconColor: &quot;#56BD9D&quot;</div><div class="line">    &#125;,</div><div class="line">    error: &#123;</div><div class="line">        title: &quot;错误&quot;,</div><div class="line">        btn: &#123;</div><div class="line">            sure: &quot;l-btn-error&quot;,</div><div class="line">            cancel: &quot;l-btn-default&quot;</div><div class="line">        &#125;,</div><div class="line">        iconData: &quot;&quot;,</div><div class="line">        iconColor: &quot;#c9302c&quot;</div><div class="line">    &#125;,</div><div class="line">    confirm: &#123;</div><div class="line">        title: &quot;提示&quot;,</div><div class="line">        btn: &#123;</div><div class="line">            sure: &quot;l-btn-warning&quot;,</div><div class="line">            cancel: &quot;l-btn-default&quot;</div><div class="line">        &#125;,</div><div class="line">        iconData: &quot;&quot;,</div><div class="line">        iconColor: &quot;#F0AD4E&quot;</div><div class="line">    &#125;,</div><div class="line">    input: &#123;</div><div class="line">        title: &quot;输入&quot;,</div><div class="line">        btn: &#123;</div><div class="line">            sure: &quot;l-btn-primary&quot;,</div><div class="line">            cancel: &quot;l-btn-default&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    bim: &#123;</div><div class="line">        title: &quot;提示&quot;,</div><div class="line">        btn: &#123;</div><div class="line">            sure: &quot;l-btn-bim&quot;,</div><div class="line">            cancel: &quot;l-btn-default&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    custom: &#123;</div><div class="line">        title: &quot;初始化标题&quot;,</div><div class="line">        btn: &#123;</div><div class="line">            sure: &quot;l-btn-primary&quot;,</div><div class="line">            cancel: &quot;l-btn-default&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>按钮组预定了6组：</p>
+<p><strong>l-btn-default 、 l-btn-primary 、 l-btn-error 、 l-btn-success 、 l-btn-info、 l-btn-warning</strong></p>
+<p>样式可在底部demo页面中查看</p>
+<h3 id="方法介绍（最常使用）"><a href="#方法介绍（最常使用）" class="headerlink" title="方法介绍（最常使用）"></a>方法介绍（最常使用）</h3><ul>
+<li><strong>LDialog.prompt(value, con, fun)</strong></li>
+</ul>
+<p>弹出类似系统的prompt对话框，默认含有一个input输入框。</p>
+<p>value：必填，显示的文字，可以为空。</p>
+<p>con： 选填，配置样式，可使用插件<strong>arg2</strong>的参数</p>
+<p>fun： 选填，确认按钮的回调函数，用来获得数据，处理数据</p>
+<p>example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var con = &#123;</div><div class="line">    input: [&#123;</div><div class="line">        type: &quot;textarea&quot;</div><div class="line">    &#125;],</div><div class="line">    width: &quot;400px&quot;,</div><div class="line">    onIsNull: function(position, i) &#123;</div><div class="line">        if(position.val() === &quot;&quot;) &#123;</div><div class="line">            position.focus();</div><div class="line">            LDialog.tips(&quot;请输入正确的值,&quot;,position, &#123;posi: 2&#125;);</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">LDialog.prompt(&quot;&quot;, con, function(v) &#123;</div><div class="line">    if(v[0] !== &quot;&quot;) &#123;</div><div class="line">        LDialog.closeAllTips();</div><div class="line">        console.log(v);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>LDialog.alert(value, con, fun)</strong></li>
+</ul>
+<p>example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">LDialog.alert(&quot;123123123123123&quot;);</div><div class="line"></div><div class="line">LDialog.alert(&quot;123123123123123&quot;, function() &#123;</div><div class="line">	console.log(&quot;点击确定按钮了！&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>和p<br>rompt方法使用相同，但是alert只有确定按钮，没有input输入框。</p>
+<ul>
+<li><strong>LDialog.confirm(value, con, fun)</strong></li>
+</ul>
+<p>example: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LDialog.confirm(value, &#123;iconData: &quot;&quot;&#125;, function() &#123;</div><div class="line">    LDialog.msg(&quot;删除成功！&quot;, &#123;iconData: &quot;&quot;, iconColor: &quot;green&quot;, iconSize: &quot;30px&quot;&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>和prompt方法使用相同，但是confirm没有input输入框。</p>
+<ul>
+<li><strong>LDialog.msg(value, con, fun)</strong></li>
+</ul>
+<p>value：必填，显示的文字，可以为空。</p>
+<p>con： 选填，配置样式，可使用插件<strong>arg2</strong>的参数</p>
+<p>fun： 选填，倒计时过后的回调函数，用来阻断函数执行。</p>
+<p>example: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	LDialog.msg(&quot;删除成功！&quot;, &#123;iconData: &quot;&quot;&#125;, function() &#123;</div><div class="line">		console.log(123);	</div><div class="line">	&#125;);</div><div class="line">`</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>LDialog.tip(value, con, fun)</strong></li>
+</ul>
+<p>和msg方法使用相同，但样式不同。</p>
+<ul>
+<li><strong>LDialog.tips(value, selector, con)</strong></li>
+</ul>
+<p>value：必填，显示的文字，可以为空。</p>
+<p>selector： 必填，显示tips出现的位置，可以为任意jquery的选择器。</p>
+<p>con： 选填，用来配置tips显示效果，具体参数如下：</p>
+<pre><code>posi: 2,  //默认显示在选择器的右边位置，可定义分别对应的位置： 1：上， 2： 右， 3： 下， 4： 左
+bg: &quot;#000&quot;,  //定义tips背景色，默认为黑色
+color: &quot;#fff&quot;, //定义tips文字颜色，默认为白色
+maxWidth: &quot;150&quot;, //定义tips最大宽度，默认为150px
+timeOut: 2000, //定义tips多少秒后消失。
+tipsClose: $.noop //定义tips倒计时回调函数
+</code></pre><h3 id="Live-Demo"><a href="#Live-Demo" class="headerlink" title="Live Demo"></a>Live Demo</h3><p>插件demo：<a href="http://luojinghui.github.io/LDialog/html/index.html">传送门</a></p>
 <p>字体图标： <a href="http://luojinghui.github.io/LDialog/font-demo/demo.html">传送门</a></p>
 <p>git地址： <a href="https://github.com/luojinghui/LDialog/tree/gh-pages" target="_blank" rel="external">传送门</a></p>
 <p>###版本</p>
@@ -410,11 +714,11 @@ LDialog.alert(&quot;123123123123123&quot;, function() {
   
 <nav id="article-nav">
   
-    <a href="/2017/02/10/FirstArticle/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/10/books/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hexo搭建个人博客
+          2017-岂止于心
         
       </div>
     </a>
@@ -538,6 +842,18 @@ LDialog.alert(&quot;123123123123123&quot;, function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Personal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
@@ -551,18 +867,6 @@ LDialog.alert(&quot;123123123123123&quot;, function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Book</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Personal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
             
             <div class="clearfix"></div>
