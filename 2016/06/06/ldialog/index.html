@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://luojinghui.github.io/2016/06/06/ldialog/index.html">
 <meta property="og:site_name" content="Luojh的博客">
 <meta property="og:description" content="LDialog-强大的jquery弹窗插件,蒙版插件">
-<meta property="og:updated_time" content="2017-02-17T03:17:50.000Z">
+<meta property="og:updated_time" content="2017-02-17T03:43:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LDialog-强大的jquery弹窗插件">
 <meta name="twitter:description" content="LDialog-强大的jquery弹窗插件,蒙版插件">
@@ -176,6 +176,7 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install --save-dev ldialog</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><ul>
 <li><p>在头部引入<code>ldialog.css</code>或者压缩过的<code>ldialog.min.css</code>文件,**同时将fonts字体图标文件放置在css同级目录中。 </p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/ldialog.css&quot;/&gt;</div></pre></td></tr></table></figure>
@@ -185,8 +186,9 @@
 </li>
 </ul>
 <p>当在监听事件中需要弹出对话框或蒙版时，实例化一个蒙版，并初始化,例如：</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dialog = new LDialog(&quot;test2&quot;, &#123;footer: false&#125;, &#123;btn: &#123;sure: &quot;btn-info&quot;&#125;&#125;);</div><div class="line">dialog.init();</div></pre></td></tr></table></figure>
-</code></pre><h3 id="LDialog参数说明"><a href="#LDialog参数说明" class="headerlink" title="LDialog参数说明"></a>LDialog参数说明</h3><p> new LDialog（arg1, arg2, arg3）可以传入（选填）三个参数：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dialog = new LDialog(&quot;test2&quot;);</div><div class="line">dialog.init();</div></pre></td></tr></table></figure>
+</code></pre><p>就是这么简单,可能有同学想说,为什么创建一个蒙版还是有些麻烦,其实后面还有通过方法创建蒙版,请<br>接着看完文档哦。</p>
+<h3 id="LDialog参数说明"><a href="#LDialog参数说明" class="headerlink" title="LDialog参数说明"></a>LDialog参数说明</h3><p> new LDialog（arg1, arg2, arg3）可以传入（选填）三个参数：</p>
 <h4 id="arg1-字符串"><a href="#arg1-字符串" class="headerlink" title="arg1 (字符串)"></a>arg1 (字符串)</h4><table>
 <thead>
 <tr>
@@ -535,13 +537,11 @@
 <p>按钮组预定了6组：</p>
 <p><strong>l-btn-default 、 l-btn-primary 、 l-btn-error 、 l-btn-success 、 l-btn-info、 l-btn-warning</strong></p>
 <p>样式可在底部demo页面中查看</p>
-<h3 id="方法介绍（最常使用）"><a href="#方法介绍（最常使用）" class="headerlink" title="方法介绍（最常使用）"></a>方法介绍（最常使用）</h3><ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
 <li><strong>LDialog.prompt(value, con, fun)</strong></li>
 </ul>
 <p>弹出类似系统的prompt对话框，默认含有一个input输入框。</p>
-<p>value：必填，显示的文字，可以为空。</p>
-<p>con： 选填，配置样式，可使用插件<strong>arg2</strong>的参数</p>
-<p>fun： 选填，确认按钮的回调函数，用来获得数据，处理数据</p>
+<p>value：必填，显示的文字，可以为空。<br>con： 选填，配置样式，可使用插件<strong>arg2</strong>的参数<br>fun： 选填，确认按钮的回调函数，用来获得数据，处理数据</p>
 <p>example：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var con = &#123;</div><div class="line">    input: [&#123;</div><div class="line">        type: &quot;textarea&quot;</div><div class="line">    &#125;],</div><div class="line">    width: &quot;400px&quot;,</div><div class="line">    onIsNull: function(position, i) &#123;</div><div class="line">        if(position.val() === &quot;&quot;) &#123;</div><div class="line">            position.focus();</div><div class="line">            LDialog.tips(&quot;请输入正确的值,&quot;,position, &#123;posi: 2&#125;);</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">LDialog.prompt(&quot;&quot;, con, function(v) &#123;</div><div class="line">    if(v[0] !== &quot;&quot;) &#123;</div><div class="line">        LDialog.closeAllTips();</div><div class="line">        console.log(v);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <ul>
@@ -549,7 +549,7 @@
 </ul>
 <p>example:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">LDialog.alert(&quot;123123123123123&quot;);</div><div class="line"></div><div class="line">LDialog.alert(&quot;123123123123123&quot;, function() &#123;</div><div class="line">	console.log(&quot;点击确定按钮了！&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>和p<br>rompt方法使用相同，但是alert只有确定按钮，没有input输入框。</p>
+<p>和prompt方法使用相同，但是alert只有确定按钮，没有input输入框。</p>
 <ul>
 <li><strong>LDialog.confirm(value, con, fun)</strong></li>
 </ul>
@@ -559,9 +559,7 @@
 <ul>
 <li><strong>LDialog.msg(value, con, fun)</strong></li>
 </ul>
-<p>value：必填，显示的文字，可以为空。</p>
-<p>con： 选填，配置样式，可使用插件<strong>arg2</strong>的参数</p>
-<p>fun： 选填，倒计时过后的回调函数，用来阻断函数执行。</p>
+<p>value：必填，显示的文字，可以为空。<br>con： 选填，配置样式，可使用插件<strong>arg2</strong>的参数<br>fun： 选填，倒计时过后的回调函数，用来阻断函数执行。</p>
 <p>example: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	LDialog.msg(&quot;删除成功！&quot;, &#123;iconData: &quot;&quot;&#125;, function() &#123;</div><div class="line">		console.log(123);	</div><div class="line">	&#125;);</div><div class="line">`</div></pre></td></tr></table></figure>
 <ul>
@@ -571,9 +569,7 @@
 <ul>
 <li><strong>LDialog.tips(value, selector, con)</strong></li>
 </ul>
-<p>value：必填，显示的文字，可以为空。</p>
-<p>selector： 必填，显示tips出现的位置，可以为任意jquery的选择器。</p>
-<p>con： 选填，用来配置tips显示效果，具体参数如下：</p>
+<p>value：必填，显示的文字，可以为空。<br>selector： 必填，显示tips出现的位置，可以为任意jquery的选择器。<br>con： 选填，用来配置tips显示效果，具体参数如下：</p>
 <pre><code>posi: 2,  //默认显示在选择器的右边位置，可定义分别对应的位置： 1：上， 2： 右， 3： 下， 4： 左
 bg: &quot;#000&quot;,  //定义tips背景色，默认为黑色
 color: &quot;#fff&quot;, //定义tips文字颜色，默认为白色
@@ -714,11 +710,11 @@ tipsClose: $.noop //定义tips倒计时回调函数
   
 <nav id="article-nav">
   
-    <a href="/2017/02/10/books/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/08/FirstArticle/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2017-岂止于心
+          Hexo搭建个人博客
         
       </div>
     </a>
