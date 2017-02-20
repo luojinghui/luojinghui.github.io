@@ -8,67 +8,49 @@
   <link rel="dns-prefetch" href="https://luojinghui.github.io">
   <title>Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相册 | Luojh的博客
-    
-
-    
+  <meta name="description" content="相册
 
 
     
-
-    
-    
-
-        #container.show {
-            background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-        }
+        图片来自instagram，正在加载中…
     
 
 
-图片来自instagram，正在">
+
+    $(function() {
+        $.ajax({
+//            url: &apos;https://api.instagram.com/v1/users/3421301663/media/recent/?access_token=3421301663.bf46c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Luojh的博客">
 <meta property="og:url" content="https://luojinghui.github.io/instagram/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="相册 | Luojh的博客
-    
-
-    
+<meta property="og:description" content="相册
 
 
     
-
-    
-    
-
-        #container.show {
-            background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-        }
+        图片来自instagram，正在加载中…
     
 
 
-图片来自instagram，正在">
-<meta property="og:updated_time" content="2017-02-17T09:47:31.000Z">
+
+    $(function() {
+        $.ajax({
+//            url: &apos;https://api.instagram.com/v1/users/3421301663/media/recent/?access_token=3421301663.bf46c">
+<meta property="og:updated_time" content="2017-02-20T10:18:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="相册 | Luojh的博客
-    
-
-    
+<meta name="twitter:description" content="相册
 
 
     
-
-    
-    
-
-        #container.show {
-            background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-        }
+        图片来自instagram，正在加载中…
     
 
 
-图片来自instagram，正在">
+
+    $(function() {
+        $.ajax({
+//            url: &apos;https://api.instagram.com/v1/users/3421301663/media/recent/?access_token=3421301663.bf46c">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -111,7 +93,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/photo">相册</a></li>
+				<li><a href="/instagram/">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -187,7 +169,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/photo">相册</a></li>
+					<li style="width: 50%"><a href="/instagram/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -207,46 +189,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="dns-prefetch" href="https://luojinghui.github.io">
-    <meta charset="UTF-8">
-    <title>相册 | Luojh的博客</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
-
-
-    <link rel="icon" href="http://ol5l1z7pa.bkt.clouddn.com/logo.png">
-
-    <link rel="stylesheet" type="text/css" href="/./main.2d7529.css">
-    <style type="text/css">
-
-        #container.show {
-            background: linear-gradient(200deg,#a0cfe4,#e8c37e);
-        }
-    </style>
-</head>
+         <link rel="stylesheet" type="text/css" href="./ins.css">
 <body>
-<a href="https://www.instagram.com/guhuo2424/" target="_blank" class="open-ins">图片来自instagram，正在加载中…</a>
+<header class="article-header">
+    <h1 class="article-title" itemprop="name">相册</h1>
+</header>
+<div class="article-entry2">
+    <div class="content">
+        <a href="https://www.instagram.com/guhuo2424/" target="_blank" class="open-ins">图片来自instagram，正在加载中…</a>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     $(function() {
         $.ajax({
-            url: 'https://api.instagram.com/v1/users/3421301663/media/recent/?access_token=3421301663.bf46c23.080fa8877b604b61931920f8820b1ced',
+//            url: 'https://api.instagram.com/v1/users/3421301663/media/recent/?access_token=3421301663.bf46c23.080fa8877b604b61931920f8820b1ced',
+            url: './ins.json',
+            dataType: 'json',
             success: function(result) {
-                console.log(result);
-            },
-            dataType: 'jsonp'
+                $('.content').empty();
+
+                if(result.data.length >= 1) {
+                    var data = result.data;
+                    var wrapText = {};
+                    var realText = "";
+
+                    data.map(function(value, index) {
+                        wrapText = value.caption || {};
+                        realText = wrapText.text || "";
+                        console.log(realText);
+
+                        $('.content').append('<img src="/img/'+ value.id +'.jpg" alt="'+ realText +'"  />');
+                    })
+                } else {
+                    $('.没有拉取到Instagram的图片资源哦~~')
+                }
+            }
         });
     })
 </script>
 </body>
-</html>
+
       
 
       
