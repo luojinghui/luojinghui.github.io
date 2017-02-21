@@ -14,7 +14,12 @@
     width: 100%;
 }
 .instagram .year {
-    font-size: 16px;
+    /*font-size: 16px;*/
+    font-size: 14px;
+    font-weight: 200;
+    margin: 10px 0 0 0;
+    padding: 0;
+    color: #999;
 }
 .instagram .open-ins{
     padding: 10px 0;
@@ -24,7 +29,7 @@
     color: #657b83;
 }
 .instagram .year{
-    display: inline;
+    /*display: inline;*/
 }
 .instagram .thumb {
     /*width: 25%;*/
@@ -36,13 +41,19 @@
     /*background: #ededed;*/
     /*outline: 1px solid #ddd;*/
     width: 25%;
-    /* height: 0; */
-    padding: 20px 20px;
+     height: auto;
+    padding: 20px 20px 10px;
+    margin-bottom: 15px;
     position: relative;
     float: left;
     text-align: center;
     background: #fff;
     outline: 1px solid #ddd;
+}
+.instagram .thumb:after {
+    content: '';
+    display: table;
+    clear: both;
 }
 .instagram .thumb a {
     position: relative;
@@ -151,6 +162,11 @@
         margin: 0;
         width: 90%;
         height: 90%;
+    }
+    .instagram {
+        position: relative;
+        min-height: 100px;
+        padding: 20px 20px;
     }
 }
 
