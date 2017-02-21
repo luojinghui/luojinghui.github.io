@@ -30,7 +30,7 @@
 		var loadScript = function(path) {
 			var $script = document.createElement(&apos;script&apos;)
 			document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scri">
-<meta property="og:updated_time" content="2017-02-21T09:28:22.000Z">
+<meta property="og:updated_time" content="2017-02-21T09:36:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="相册">
 <meta name="twitter:description" content="图片来自instagram，正在加载中…
@@ -209,20 +209,16 @@
 		setTimeout(function() {
 			loadScript('./ins.js')
 		}, 0)
+
+		function add0(m){return m<10?'0'+m:m };
+		function getDate(timeString) {
+			var time = new Date(parseInt(timeString) * 1000);
+			var y = time.getFullYear();
+			var m = time.getMonth()+1;
+			var d = time.getDate();
+			return y+'-'+add0(m)+'-'+add0(d);
+		};
 	})()
-</script>
-<script>
-	function add0(m){return m<10?'0'+m:m };
-	function getDate(timeString) {
-		var time = new Date(parseInt(timeString) * 1000);
-		var y = time.getFullYear();
-		var m = time.getMonth()+1;
-		var d = time.getDate();
-//        var h = time.getHours();
-//        var mm = time.getMinutes();
-//        var s = time.getSeconds();
-		return y+'-'+add0(m)+'-'+add0(d);
-	};
 </script>
       
 
@@ -409,7 +405,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Book</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ldialog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -425,15 +429,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ldialog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color5">Book</a>
               </li>
             
             <div class="clearfix"></div>
