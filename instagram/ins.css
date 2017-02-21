@@ -144,6 +144,8 @@
     }
 }
 
+
+/*自定义*/
 .article-info, .duoshuo {
     display: none!important;
 }
@@ -158,6 +160,6 @@
     padding-left: 7.6923%;
 }
 
-.content img {
-    width: 25%;
-}
+/*.content img {*/
+    /*width: 25%;*/
+/*}*/

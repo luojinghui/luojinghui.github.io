@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://luojinghui.github.io/instagram/ins.css</loc>
+    
+    <lastmod>2017-02-21T02:48:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://luojinghui.github.io/instagram/index.html</loc>
     
-    <lastmod>2017-02-21T02:44:40.000Z</lastmod>
+    <lastmod>2017-02-21T02:47:30.000Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>https://luojinghui.github.io/instagram/ins.json</loc>
     
     <lastmod>2017-02-20T10:14:35.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://luojinghui.github.io/instagram/ins.css</loc>
-    
-    <lastmod>2017-02-19T08:18:49.000Z</lastmod>
     
   </url>
   
