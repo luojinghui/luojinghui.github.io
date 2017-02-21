@@ -8,7 +8,7 @@
     position: relative;
     min-height: 500px;
 
-    padding: 20px 50px;
+    /*padding: 20px 50px;*/
 }
 .instagram img {
     width: 100%;
@@ -29,31 +29,32 @@
     color: #657b83;
 }
 .instagram .year{
-    /*display: inline;*/
+    display: inline;
 }
 .instagram .thumb {
-    /*width: 25%;*/
-    /*height: 0;*/
-    /*padding-bottom: 25%;*/
-    /*position: relative;*/
-    /*display: inline-block;*/
-    /*text-align: center;*/
-    /*background: #ededed;*/
-    /*outline: 1px solid #ddd;*/
     width: 25%;
-     height: auto;
-    padding: 20px 20px 10px;
-    margin-bottom: 15px;
+    height: 0;
+    padding-bottom: 25%;
     position: relative;
-    float: left;
+    display: inline-block;
     text-align: center;
-    background: #fff;
+    background: #ededed;
     outline: 1px solid #ddd;
+    /*width: 25%;*/
+     /*height: auto;*/
+    /*padding: 20px 20px 10px;*/
+    /*margin-bottom: 15px;*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*text-align: center;*/
+    /*background: #fff;*/
+    /*outline: 1px solid #ddd;*/
 }
-.instagram .thumb:after {
+.instagram .thumb:after, .instagram {
     content: '';
     display: table;
     clear: both;
+    width: 100%;
 }
 .instagram .thumb a {
     position: relative;
@@ -163,28 +164,31 @@
         width: 90%;
         height: 90%;
     }
-    .instagram {
-        position: relative;
-        min-height: 100px;
-        padding: 20px 20px;
-    }
+    /*.instagram {*/
+        /*position: relative;*/
+        /*min-height: 100px;*/
+        /*padding: 20px 20px;*/
+    /*}*/
 }
 
 
 /*自定义*/
-.article-info, .duoshuo {
-    display: none!important;
+/*.article-info, .duoshuo {*/
+    /*display: none!important;*/
+/*}*/
+.article-info {
+display: none!important;
 }
-.article-entry {
-    line-height: 1.8em;
-    padding-right: 0;
-    padding-left: 0;
-}
-.article-entry2 {
-    line-height: 1.8em;
-    padding-right: 7.6923%;
-    padding-left: 7.6923%;
-}
+/*.article-entry {*/
+    /*line-height: 1.8em;*/
+    /*padding-right: 0;*/
+    /*padding-left: 0;*/
+/*}*/
+/*.article-entry2 {*/
+    /*line-height: 1.8em;*/
+    /*padding-right: 7.6923%;*/
+    /*padding-left: 7.6923%;*/
+/*}*/
 
 /*.content img {*/
     /*width: 25%;*/
