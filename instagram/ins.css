@@ -32,14 +32,24 @@
     display: inline;
 }
 .instagram .thumb {
+    /*width: 25%;*/
+    /*height: 0;*/
+    /*padding-bottom: 25%;*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*text-align: center;*/
+    /*background: #ededed;*/
+    /*outline: 1px solid #ddd;*/
+
     width: 25%;
     height: 0;
     padding-bottom: 25%;
     position: relative;
     display: inline-block;
     text-align: center;
-    background: #ededed;
-    outline: 1px solid #ddd;
+    background: #fff;
+    margin-top: 15px;
+
     /*width: 25%;*/
      /*height: auto;*/
     /*padding: 20px 20px 10px;*/

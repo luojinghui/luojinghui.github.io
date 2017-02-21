@@ -125,7 +125,7 @@
           liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
                 <a href="' + src + '" itemprop="contentUrl" data-size="640x640" data-type="' + type + '" data-target=".jpg">\
                   <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="'+ minSrc +'" itemprop="thumbnail" onload="lzld(this)">\
-                  <h1 class="year">' + 2017 + '<em>' + 2 + '月</em></h1>\
+                  <h1 class="year">' + getDate(data.created_time) + '</h1>\
                 </a>\
                 <figcaption style="display:none" itemprop="caption description">' + realText + '</figcaption>\
             </figure>';
