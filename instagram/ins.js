@@ -110,6 +110,14 @@
         addMask($videoImg[i]);
       }
     };
+
+    var getDate = function getDate(timeString) {
+      var time = new Date(parseInt(timeString) * 1000);
+      var y = time.getFullYear();
+      var m = time.getMonth()+1;
+      var d = time.getDate();
+      return y+'-'+add0(m)+'-'+add0(d);
+    };
     var render = function render(res) {
       var ulTmpl = "";
       for (var j = 0, len2 = res.data.length; j < len2; j++) {
@@ -125,7 +133,7 @@
           liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
                 <a href="' + src + '" itemprop="contentUrl" data-size="640x640" data-type="' + type + '" data-target=".jpg">\
                   <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="'+ minSrc +'" itemprop="thumbnail" onload="lzld(this)">\
-                  <h1 class="year">' + getDate(data.created_time) + '</h1>\
+                  <h1 class="year">'+ getDate(data.created_time) +'</h1>\
                 </a>\
                 <figcaption style="display:none" itemprop="caption description">' + realText + '</figcaption>\
             </figure>';
