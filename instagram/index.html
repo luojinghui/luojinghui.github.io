@@ -22,7 +22,7 @@
 
     
         图片来自instagram，正在加载中…">
-<meta property="og:updated_time" content="2017-02-21T06:41:53.000Z">
+<meta property="og:updated_time" content="2017-02-21T07:14:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Luojh的博客">
 <meta name="twitter:description" content="相册
@@ -267,6 +267,7 @@
                         data-type="image"\
                         data-src="'+ imgMinSrc +'"\
                         src="'+ imgMinSrc +'"itemprop="thumbnail"data-lzled="true">\
+                        <h1 class="year">'+ getDate(value.created_time) +'</h1>\
                                 </a> <figcaption style="display:none"\
                         itemprop="caption description">'+ realText +'</figcaption>\
                         </figure>\
@@ -277,7 +278,19 @@
                 }
             }
         });
-    })
+    });
+
+    function add0(m){return m<10?'0'+m:m };
+    function getDate(timeString) {
+        var time = new Date(parseInt(timeString) * 1000);
+        var y = time.getFullYear();
+        var m = time.getMonth()+1;
+        var d = time.getDate();
+//        var h = time.getHours();
+//        var mm = time.getMinutes();
+//        var s = time.getSeconds();
+        return y+'-'+add0(m)+'-'+add0(d);
+    };
 </script>
 </body>
 
