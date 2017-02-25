@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Allow: /tags/
+Allow: /instagram/
+Allow: /archives/
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
@@ -8,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://luojinghui.github.io/sitemap.xml
-Sitemap: https://luojinghui.github.io/baidusitemap.xml
+Sitemap: http://luojh.me/sitemap.xml
+Sitemap: http://luojh.me/baidusitemap.xml
