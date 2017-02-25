@@ -3,6 +3,7 @@ Allow: /
 Allow: /tags/
 Allow: /instagram/
 Allow: /archives/
+Allow: /categories/
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
