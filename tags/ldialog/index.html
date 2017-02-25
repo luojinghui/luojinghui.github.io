@@ -51,7 +51,7 @@
 		  <h1 class="header-author"><a href="/">Leo-jinghui</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">你若担心你不能飞&lt;br&gt;你有我的蝴蝶</p>
+		<p class="header-subtitle">你若担心你不能飞,你有我的蝴蝶</p>
 		
 
 		<nav class="header-menu">
@@ -69,6 +69,8 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">Time</a>
     			
             
     			
@@ -107,7 +109,7 @@
 			  <h1 class="header-author js-header-author">Leo-jinghui</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你若担心你不能飞&lt;br&gt;你有我的蝴蝶<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你若担心你不能飞,你有我的蝴蝶<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -262,6 +264,8 @@
       
     
       
+      
+      
     
       
       
@@ -273,13 +277,15 @@
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Time</a></li>
+      
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -300,6 +306,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
@@ -309,10 +319,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Book</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -370,6 +376,18 @@
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://luojh.me/gallery-by-react/src/index.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>时光</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
     
 
     
