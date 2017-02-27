@@ -419,16 +419,19 @@
         border-style: solid;
     }
     .triangle-bottom {
+        display: inline-block;
         border-width: 50px 30px 0px 30px;
         border-color: #669 transparent transparent transparent;
         border-style: solid;
     }
     .triangle-left {
+        display: inline-block;
         border-width: 30px 50px 30px 0px;
         border-color: transparent #669 transparent transparent;
         border-style: solid;
     }
     .triangle-right {
+        display: inline-block;
         border-width: 30px 0px 30px 50px;
         border-color: transparent transparent transparent #669;
         border-style: solid;
@@ -499,6 +502,7 @@
         border-left: 50px solid #669;
     }
     .four {
+        display: inline-block;
         border-width: 25px;
         border-style: solid;
         border-color: antiquewhite burlywood lightblue lightsalmon;
@@ -540,18 +544,22 @@
         border-radius: 0 999px 999px 0;
     }
     .circle-top-left {
+        display: inline-block;
         border: 25px solid #669;
         border-top-left-radius: 999px;
     }
     .circle-top-right {
+        display: inline-block;
         border: 25px solid #669;
         border-top-right-radius: 999px;
     }
     .circle-bottom-left {
+        display: inline-block;
         border: 25px solid #669;
         border-bottom-left-radius: 999px;
     }
     .circle-bottom-right {
+        display: inline-block;
         border: 25px solid #669;
         border-bottom-right-radius: 999px;
     }
@@ -633,6 +641,7 @@
         left: 14px;
     }
     .star-five {
+        display: inline-block;
         position: relative;
         border-right: 10px solid transparent;
         border-bottom: 25px solid #669;
@@ -697,7 +706,7 @@
         border: 0 solid transparent;
         width: 27px;
         height: 40px;
-        bottom: -5px;
+        bottom: -21px;
         left: -26px;
         border-top: 15px solid #669;
         border-radius: 55px 0 0 0;
@@ -737,12 +746,13 @@
         border-radius: 4px!important;
         padding: 15px!important;
     }
-    .mt10 {
-        margin-top: 20px;
-    }
+    .mt10 {  margin-top: 20px;  }
+    .mb30 {  margin-bottom: 30px;  }
+    .mb50 {  margin-bottom: 50px;  }
+    .ml20 {  margin-left: 20px;  }
 </style>
 <p>
-    练习通过纯css绘画各种几何图形,已达到对于基本css属性的理解和深入。图形包括基本的矩形、圆形、椭圆、三角形、多边形，也包括稍微复杂一点的爱心、钻石、阴阳八卦等。当然有一些需要用到CSS3的属性。下面就一起来看看我们是如何用纯CSS来画这些图形的。
+    早前学习css3的练习,通过纯css实现基本的图形,熟悉css的属性应用。今天抽空整理出来,分享给想要学习css的同学。
 </p>
         
           <a class="article-more-a" href="/2016/03/10/css/index/#more">more >></a>
@@ -885,7 +895,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Book</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ldialog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,15 +919,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ldialog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color5">Book</a>
               </li>
              
               <li class="article-tag-list-item">
