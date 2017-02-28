@@ -400,8 +400,12 @@
 </script>
 <script>
 	function addCount (Counter) {
-		url=$('.article-date').attr('href');
+		url=$('.archive-article-date').attr('href');
+		url = $.trim(url);
+		console.log(url);
 		title = $('.article-title').text();
+		title = $.trim(title);
+		console.log(title);
 		var query=new AV.Query(Counter);
 		//use url as unique idnetfication
 		query.equalTo("url",url);
@@ -518,6 +522,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
@@ -527,10 +535,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Book</a>
               </li>
              
               <li class="article-tag-list-item">
