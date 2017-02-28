@@ -396,12 +396,12 @@
 <script
 		src="https://code.jquery.com/jquery-2.2.4.min.js"
 		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-		crossorigin="anonymous"></script>
-<script>
+		crossorigin="anonymous">
+</script>
 <script>
 	function addCount (Counter) {
-		url=$('.article-date').attr('href').trim();
-		title = $('.article-title').text().trim();
+		url=$('.article-date').attr('href');
+		title = $('.article-title').text();
 		var query=new AV.Query(Counter);
 		//use url as unique idnetfication
 		query.equalTo("url",url);
