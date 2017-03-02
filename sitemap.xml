@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.luojh.me/2016/01/12/css/scss-demo/</loc>
+    
+    <lastmod>2017-03-02T06:36:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.luojh.me/2016/06/06/ldialog/</loc>
+    
+    <lastmod>2017-03-02T04:49:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.luojh.me/instagram/ins.json</loc>
     
     <lastmod>2017-03-01T10:32:18.000Z</lastmod>
@@ -9,23 +23,9 @@
   </url>
   
   <url>
-    <loc>http://www.luojh.me/2016/06/06/ldialog/</loc>
-    
-    <lastmod>2017-03-01T10:14:51.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.luojh.me/2017/02/10/books/</loc>
     
     <lastmod>2017-03-01T10:14:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.luojh.me/2016/01/12/css/scss-demo/</loc>
-    
-    <lastmod>2017-03-01T10:14:13.000Z</lastmod>
     
   </url>
   
