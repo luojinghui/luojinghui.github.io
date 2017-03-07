@@ -179,95 +179,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在学习canvas,记录一下贝塞尔曲线的两个使用方法:</p>
-<ol>
-<li>quadraticCurveTo();</li>
-<li>bezierCurveTo();</li>
-</ol>
-<h4 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h4><p>quadraticCurveTo() 方法通过使用表示二次贝塞尔曲线的指定控制点，向当前路径添加一个点。<br><span style="color: orange">提示</span>：二次贝塞尔曲线需要两个点。<br>    第一个点是用于二次贝塞尔计算中的控制点。<br>    第二个点是曲线的结束点。曲线的开始点是当前路径中最后一个点。<br>    如果路径不存在，那么请使用 beginPath() 和 moveTo() 方法来定义开始点。</p>
-<div style="margin: 20px;"> <img src="/img/quadraticcurve.gif" alt="标注"> </div>
-
-<ul>
-<li>开始点：moveTo(20,20)</li>
-<li>控制点：quadraticCurveTo(<span style="color: #f65131">20</span>,<span style="color: #f65131">100</span>,200,20)</li>
-<li>结束点：quadraticCurveTo(20,100,<span style="color: #f65131">200</span>,<span style="color: #f65131">20</span>)</li>
-</ul>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.quadraticCurveTo(cpx,cpy,x,y);</div></pre></td></tr></table></figure>
-<h4 id="参数值"><a href="#参数值" class="headerlink" title="参数值"></a>参数值</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">cpx</td>
-<td style="text-align:left">贝塞尔控制点的 x 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">cpy</td>
-<td style="text-align:left">贝塞尔控制点的 y 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">x</td>
-<td style="text-align:left">结束点的 x 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">y</td>
-<td style="text-align:left">结束点的 y 坐标</td>
-</tr>
-</tbody>
-</table>
-<h4 id="定义和用法-1"><a href="#定义和用法-1" class="headerlink" title="定义和用法"></a>定义和用法</h4><p>bezierCurveTo() 方法通过使用表示三次贝塞尔曲线的指定控制点，向当前路径添加一个点。<br><span style="color: orange">提示</span>：三次贝塞尔曲线需要三个点。前两个点是用于三次贝塞尔计算中的控制点，第三个点是曲线的结束点。曲线的开始点是当前路径中最后一个点。如果路径不存在，那么请使用 beginPath() 和 moveTo() 方法来定义开始点。</p>
-<div style="margin: 20px;"> <img src="/img/beziercurve.gif" alt="标注"> </div>
-
-<ul>
-<li>开始点：moveTo(20,20)</li>
-<li>控制点 1：bezierCurveTo(<span style="color: #f65131">20</span>,<span style="color: #f65131">100</span>,200,100,200,20)</li>
-<li>控制点 2：bezierCurveTo(20,100,<span style="color: #f65131">200</span>,<span style="color: #f65131">100</span>,200,20)</li>
-<li>结束点：bezierCurveTo(20,100,200,100,<span style="color: #f65131">200</span>,<span style="color: #f65131">20</span>)</li>
-</ul>
-<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</div></pre></td></tr></table></figure>
-<h3 id="参数值-1"><a href="#参数值-1" class="headerlink" title="参数值"></a>参数值</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">cp1x</td>
-<td style="text-align:left">第一个贝塞尔控制点的 x 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">cp1y</td>
-<td style="text-align:left">第一个贝塞尔控制点的 y 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">cp2x</td>
-<td style="text-align:left">第二个贝塞尔控制点的 x 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">cp2y</td>
-<td style="text-align:left">第二个贝塞尔控制点的 y 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">x</td>
-<td style="text-align:left">结束点的 x 坐标</td>
-</tr>
-<tr>
-<td style="text-align:left">y</td>
-<td style="text-align:left">结束点的 y 坐标</td>
-</tr>
-</tbody>
-</table>
-<h4 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h4><p>基本语法学习完了,就开始自己动手画图啦。首先,来个简单一点的,两个C字母组合吧:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">context.lineWidth = 5;</div><div class="line">context.strokeStyle = &quot;green&quot;;</div><div class="line"></div><div class="line">context.moveTo(50, 50);</div><div class="line">context.bezierCurveTo(50, 50, 150, 50, 150, 150);</div><div class="line">context.stroke();</div><div class="line">context.quadraticCurveTo(150, 250, 50, 250);</div><div class="line">context.stroke();</div><div class="line"></div><div class="line">context.beginPath();</div><div class="line">context.strokeStyle = &quot;red&quot;;</div><div class="line">context.moveTo(260, 50);</div><div class="line">context.quadraticCurveTo(155, 50, 155, 155);</div><div class="line">context.stroke();</div><div class="line">context.bezierCurveTo(155, 155, 155, 250, 250, 250);</div><div class="line">context.stroke();</div></pre></td></tr></table></figure></p>
-<p>效果如图:<br><img src="/img/cc.png" alt="cc"></p>
-<p>恩,感觉还不错,接着画一个😊的表情吧:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">context.beginPath();</div><div class="line">context.lineCap = &quot;round&quot;;</div><div class="line">context.strokeStyle = &quot;black&quot;;</div><div class="line">context.moveTo(300, 80);</div><div class="line">context.quadraticCurveTo(312, 40, 360, 50);</div><div class="line">context.stroke();</div><div class="line"></div><div class="line">context.moveTo(500, 80);</div><div class="line">context.quadraticCurveTo(490, 40, 445, 50);</div><div class="line">context.stroke();</div><div class="line"></div><div class="line">context.beginPath();</div><div class="line">context.lineJoin = &quot;round&quot;;</div><div class="line">context.moveTo(340, 150);</div><div class="line">context.quadraticCurveTo(405, 230, 470, 150);</div><div class="line">context.quadraticCurveTo(405, 200, 340, 150);</div><div class="line">context.stroke();</div></pre></td></tr></table></figure></p>
-<p><img src="/img/smail.png" alt="cc"><br>丑到爆的微笑表情😔,耐着性子看吧~~<br>至此,Canvas简单的曲线方法使用就结束了,也是难以理解,只有一步一步的写例子,才能加深理解,这就是个人的学习方式吧。</p>
-
+        <a class="article-more-a" href="/2017/03/07/html/canvas1/#more"><p>最近在学习canvas,记录一下贝塞尔曲线的两个使用方法:<br></a>
+        
+        <!--<a class="article-more-a" href="/2017/03/07/html/canvas1/#more">more >></a>-->
+        
       
 
       
@@ -1154,14 +1069,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -1175,6 +1082,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
