@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Tag: model | Luojh的博客</title>
+  <title>canvas贝塞尔曲线总结 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luojh的博客">
-<meta property="og:url" content="http://www.luojh.me/tags/model/index.html">
+  <meta name="description" content="canvas贝塞尔曲线总结 | luojh的博客 | 前端骚年一枚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas贝塞尔曲线总结">
+<meta property="og:url" content="http://www.luojh.me/2017/03/07/html/canvas1/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:description" content="canvas贝塞尔曲线总结 | luojh的博客 | 前端骚年一枚">
+<meta property="og:image" content="http://www.luojh.me/img/quadraticcurve.gif">
+<meta property="og:image" content="http://www.luojh.me/img/beziercurve.gif">
+<meta property="og:image" content="http://www.luojh.me/img/cc.png">
+<meta property="og:image" content="http://www.luojh.me/img/smail.png">
+<meta property="og:updated_time" content="2017-03-07T10:06:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta name="twitter:title" content="canvas贝塞尔曲线总结">
+<meta name="twitter:description" content="canvas贝塞尔曲线总结 | luojh的博客 | 前端骚年一枚">
+<meta name="twitter:image" content="http://www.luojh.me/img/quadraticcurve.gif">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -157,68 +163,268 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-html/canvas1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/06/ldialog/" class="archive-article-date">
-  	<time datetime="2016-06-06T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/06/ldialog/">LDialog-强大的jquery弹窗插件</a>
+    <h1 class="article-title" itemprop="name">
+      canvas贝塞尔曲线总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/07/html/canvas1/" class="archive-article-date">
+  	<time datetime="2017-03-07T08:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在学习canvas,记录一下贝塞尔曲线的两个使用方法:</p>
+<ol>
+<li>quadraticCurveTo();</li>
+<li>bezierCurveTo();</li>
+</ol>
+<h4 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h4><p>quadraticCurveTo() 方法通过使用表示二次贝塞尔曲线的指定控制点，向当前路径添加一个点。<br><span style="color: orange">提示</span>：二次贝塞尔曲线需要两个点。<br>    第一个点是用于二次贝塞尔计算中的控制点。<br>    第二个点是曲线的结束点。曲线的开始点是当前路径中最后一个点。<br>    如果路径不存在，那么请使用 beginPath() 和 moveTo() 方法来定义开始点。</p>
+<div style="margin: 20px;"> <img src="/img/quadraticcurve.gif" alt="标注"> </div>
+
+<ul>
+<li>开始点：moveTo(20,20)</li>
+<li>控制点：quadraticCurveTo(<span style="color: #f65131">20</span>,<span style="color: #f65131">100</span>,200,20)</li>
+<li>结束点：quadraticCurveTo(20,100,<span style="color: #f65131">200</span>,<span style="color: #f65131">20</span>)</li>
+</ul>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.quadraticCurveTo(cpx,cpy,x,y);</div></pre></td></tr></table></figure>
+<h4 id="参数值"><a href="#参数值" class="headerlink" title="参数值"></a>参数值</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cpx</td>
+<td style="text-align:left">贝塞尔控制点的 x 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">cpy</td>
+<td style="text-align:left">贝塞尔控制点的 y 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">结束点的 x 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">y</td>
+<td style="text-align:left">结束点的 y 坐标</td>
+</tr>
+</tbody>
+</table>
+<h4 id="定义和用法-1"><a href="#定义和用法-1" class="headerlink" title="定义和用法"></a>定义和用法</h4><p>bezierCurveTo() 方法通过使用表示三次贝塞尔曲线的指定控制点，向当前路径添加一个点。<br><span style="color: orange">提示</span>：三次贝塞尔曲线需要三个点。前两个点是用于三次贝塞尔计算中的控制点，第三个点是曲线的结束点。曲线的开始点是当前路径中最后一个点。如果路径不存在，那么请使用 beginPath() 和 moveTo() 方法来定义开始点。</p>
+<div style="margin: 20px;"> <img src="/img/beziercurve.gif" alt="标注"> </div>
+
+<ul>
+<li>开始点：moveTo(20,20)</li>
+<li>控制点 1：bezierCurveTo(<span style="color: #f65131">20</span>,<span style="color: #f65131">100</span>,200,100,200,20)</li>
+<li>控制点 2：bezierCurveTo(20,100,<span style="color: #f65131">200</span>,<span style="color: #f65131">100</span>,200,20)</li>
+<li>结束点：bezierCurveTo(20,100,200,100,<span style="color: #f65131">200</span>,<span style="color: #f65131">20</span>)</li>
+</ul>
+<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);</div></pre></td></tr></table></figure>
+<h3 id="参数值-1"><a href="#参数值-1" class="headerlink" title="参数值"></a>参数值</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">cp1x</td>
+<td style="text-align:left">第一个贝塞尔控制点的 x 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">cp1y</td>
+<td style="text-align:left">第一个贝塞尔控制点的 y 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">cp2x</td>
+<td style="text-align:left">第二个贝塞尔控制点的 x 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">cp2y</td>
+<td style="text-align:left">第二个贝塞尔控制点的 y 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">结束点的 x 坐标</td>
+</tr>
+<tr>
+<td style="text-align:left">y</td>
+<td style="text-align:left">结束点的 y 坐标</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h4><p>基本语法学习完了,就开始自己动手画图啦。首先,来个简单一点的,两个C字母组合吧:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">context.lineWidth = 5;</div><div class="line">context.strokeStyle = &quot;green&quot;;</div><div class="line"></div><div class="line">context.moveTo(50, 50);</div><div class="line">context.bezierCurveTo(50, 50, 150, 50, 150, 150);</div><div class="line">context.stroke();</div><div class="line">context.quadraticCurveTo(150, 250, 50, 250);</div><div class="line">context.stroke();</div><div class="line"></div><div class="line">context.beginPath();</div><div class="line">context.strokeStyle = &quot;red&quot;;</div><div class="line">context.moveTo(260, 50);</div><div class="line">context.quadraticCurveTo(155, 50, 155, 155);</div><div class="line">context.stroke();</div><div class="line">context.bezierCurveTo(155, 155, 155, 250, 250, 250);</div><div class="line">context.stroke();</div></pre></td></tr></table></figure></p>
+<p>效果如图:<br><img src="/img/cc.png" alt="cc"></p>
+<p>恩,感觉还不错,接着画一个😊的表情吧:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">context.beginPath();</div><div class="line">context.lineCap = &quot;round&quot;;</div><div class="line">context.strokeStyle = &quot;black&quot;;</div><div class="line">context.moveTo(300, 80);</div><div class="line">context.quadraticCurveTo(312, 40, 360, 50);</div><div class="line">context.stroke();</div><div class="line"></div><div class="line">context.moveTo(500, 80);</div><div class="line">context.quadraticCurveTo(490, 40, 445, 50);</div><div class="line">context.stroke();</div><div class="line"></div><div class="line">context.beginPath();</div><div class="line">context.lineJoin = &quot;round&quot;;</div><div class="line">context.moveTo(340, 150);</div><div class="line">context.quadraticCurveTo(405, 230, 470, 150);</div><div class="line">context.quadraticCurveTo(405, 200, 340, 150);</div><div class="line">context.stroke();</div></pre></td></tr></table></figure></p>
+<p><img src="/img/smail.png" alt="cc"><br>丑到爆的微笑表情😔,耐着性子看吧~~<br>至此,Canvas简单的曲线方法使用就结束了,也是难以理解,只有一步一步的写例子,才能加深理解,这就是个人的学习方式吧。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/w2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">canvas</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ldialog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2017/03/07/html/canvas1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/02/10/books/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2017-岂止于心</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="html/canvas1" data-title="canvas贝塞尔曲线总结" data-url="http://www.luojh.me/2017/03/07/html/canvas1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"luojinghui"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -248,9 +454,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
