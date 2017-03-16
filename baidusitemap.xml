@@ -4,11 +4,9 @@
 
     
     
-    
-    
   <url>
     <loc>http://www.luojh.me/2017/03/07/html/canvas1/</loc>
-    <lastmod>2017-03-07T10:09:46.000Z</lastmod>
+    <lastmod>2017-03-16T10:39:31.000Z</lastmod>
     <data>
         <display>
         <title>canvas贝塞尔曲线总结</title>
@@ -26,6 +24,29 @@
 
     
   <url>
+    <loc>http://www.luojh.me/2016/06/06/ldialog/</loc>
+    <lastmod>2017-03-14T02:25:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>LDialog-强大的jquery弹窗插件</title>
+        <pubTime>2016-06-06T04:20:25.000Z</pubTime>
+        
+        <tag>jquery</tag>
+         
+        <tag>ldialog</tag>
+         
+        <tag>model</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
     <loc>http://www.luojh.me/2016/01/12/css/scss-demo/</loc>
     <lastmod>2017-03-02T06:36:26.000Z</lastmod>
     <data>
@@ -40,27 +61,6 @@
         <tag>Scss</tag>
          
         <tag>sass</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.luojh.me/2016/06/06/ldialog/</loc>
-    <lastmod>2017-03-02T04:49:27.000Z</lastmod>
-    <data>
-        <display>
-        <title>LDialog-强大的jquery弹窗插件</title>
-        <pubTime>2016-06-06T04:20:25.000Z</pubTime>
-        
-        <tag>jquery</tag>
-         
-        <tag>ldialog</tag>
-         
-        <tag>model</tag>
          
          
            
