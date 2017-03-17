@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.luojh.me/message/message.css</loc>
+    
+    <lastmod>2017-03-17T15:25:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.luojh.me/message/index.html</loc>
     
-    <lastmod>2017-03-17T15:18:59.000Z</lastmod>
+    <lastmod>2017-03-17T15:24:31.000Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://www.luojh.me/2016/06/06/ldialog/</loc>
     
     <lastmod>2017-03-14T02:25:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.luojh.me/message/message.css</loc>
-    
-    <lastmod>2017-03-10T17:37:25.000Z</lastmod>
     
   </url>
   

@@ -91,12 +91,20 @@ body {
 .ds-post.ds-post-placeholder {
     color: #fff;
 }
-
+.iframe {
+    display: block;margin: 5px auto;padding-bottom: 26px;height: 110px;
+}
 @media screen and (max-width: 800px) {
     .article-header {
         border-bottom: none;
     }
     .article-header {
         display: none;
+    }
+}
+@media screen and (max-width: 432px) {
+    .iframe {
+        display: block;margin: 5px auto;padding-bottom: 26px;height: 110px;
+        width: 250px;
     }
 }
