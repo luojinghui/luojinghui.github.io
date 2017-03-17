@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Tag: sass | Luojh的博客</title>
+  <title>React-Native踩过的坑---分享篇 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luojh的博客">
-<meta property="og:url" content="http://www.luojh.me/tags/sass/index.html">
+  <meta name="description" content="react-native-wechat制作分享功能 | luojh的博客 | 前端骚年一枚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Native踩过的坑---分享篇">
+<meta property="og:url" content="http://www.luojh.me/2017/03/17/reactNative/reactNativeError/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:description" content="react-native-wechat制作分享功能 | luojh的博客 | 前端骚年一枚">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/share1.jpeg">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/share2.jpeg">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/share3.jpeg">
+<meta property="og:updated_time" content="2017-03-17T14:32:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta name="twitter:title" content="React-Native踩过的坑---分享篇">
+<meta name="twitter:description" content="react-native-wechat制作分享功能 | luojh的博客 | 前端骚年一枚">
+<meta name="twitter:image" content="http://ol5l1z7pa.bkt.clouddn.com/share1.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -163,72 +168,186 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-reactNative/reactNativeError" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/12/css/scss-demo/" class="archive-article-date">
-  	<time datetime="2016-01-12T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/12/css/scss-demo/">Scss学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      React-Native踩过的坑---分享篇
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/17/reactNative/reactNativeError/" class="archive-article-date">
+  	<time datetime="2017-03-17T08:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>年前开发React-native没有做分享,这几天在完善整个App,记录一下分享功能的一些坑。<br><a id="more"></a></p>
+<p>错误信息:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">com.android.build.api.transform.TransformException: java.util.zip.ZipException: </div><div class="line">duplicate entry: com/tencent/mm/sdk/a/a$a.class</div></pre></td></tr></table></figure></p>
+<p>是由于微信和umeng重复的引入相同的jar包引起的,解决方法是: 在项目根目录搜索<code>SocialSDK_WeiXin_1.jar</code>,删除此jar包即可。</p>
+<p>错误信息:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UNEXPECTED TOP-LEVEL EXCEPTION:</div><div class="line">com.android.dex.DexException: Multiple dex files define Landroid/support/v7/appcompat/R$anim;</div><div class="line"></div><div class="line">Execution failed for task &apos;:app:dexDebug&apos;.</div><div class="line">&gt; com.android.ide.common.process.ProcessException: org.gradle.process.internal.ExecException: Process &apos;command &apos;/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/bin/java&apos;&apos; finished with non-zero exit value 2</div></pre></td></tr></table></figure></p>
+<p>未知原因,google了好久,终于在我大神奇github网站的某一篇文章中找到了解决方法。<br>只需要在项目根目录,执行命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd android &amp;&amp; ./gradlew clean</div></pre></td></tr></table></figure></p>
+<p>中间陆续也踩了好多坑哎,最后实现了效果。<br><img src="http://ol5l1z7pa.bkt.clouddn.com/share1.jpeg" width="300px" height:="" "500px"=""><br><img src="http://ol5l1z7pa.bkt.clouddn.com/share2.jpeg" width="300px" height:="" "500px"=""><br><img src="http://ol5l1z7pa.bkt.clouddn.com/share3.jpeg" width="300px" height:="" "500px"=""></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/w2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react-native</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Css3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Scss</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sass</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">react-native-wechat</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2017/03/17/reactNative/reactNativeError/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/03/07/html/canvas1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas贝塞尔曲线总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="reactNative/reactNativeError" data-title="React-Native踩过的坑---分享篇" data-url="http://www.luojh.me/2017/03/17/reactNative/reactNativeError/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"luojinghui"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -258,9 +377,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
