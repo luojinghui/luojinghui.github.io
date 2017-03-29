@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.luojh.me/instagram/ins.json</loc>
+    
+    <lastmod>2017-03-29T04:19:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.luojh.me/2017/03/17/reactNative/reactNativeError/</loc>
+    
+    <lastmod>2017-03-23T10:07:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.luojh.me/2016/01/12/css/scss-demo/</loc>
     
     <lastmod>2017-03-23T03:47:41.000Z</lastmod>
@@ -16,13 +30,6 @@
   </url>
   
   <url>
-    <loc>http://www.luojh.me/2017/03/17/reactNative/reactNativeError/</loc>
-    
-    <lastmod>2017-03-23T03:08:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.luojh.me/message/index.html</loc>
     
     <lastmod>2017-03-17T17:25:16.000Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://www.luojh.me/message/message.css</loc>
     
     <lastmod>2017-03-17T15:25:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.luojh.me/instagram/ins.json</loc>
-    
-    <lastmod>2017-03-17T14:59:47.000Z</lastmod>
     
   </url>
   
