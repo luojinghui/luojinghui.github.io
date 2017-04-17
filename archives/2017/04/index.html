@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Hexo搭建个人博客 | Luojh的博客</title>
+  <title>Archives: 2017/4 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="罗晶辉的个人博客,luo&apos;s secret">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建个人博客">
-<meta property="og:url" content="http://www.luojh.me/2017/02/08/FirstArticle/index.html">
+  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luojh的博客">
+<meta property="og:url" content="http://www.luojh.me/archives/2017/04/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="罗晶辉的个人博客,luo&apos;s secret">
-<meta property="og:updated_time" content="2017-02-28T10:26:20.000Z">
+<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建个人博客">
-<meta name="twitter:description" content="罗晶辉的个人博客,luo&apos;s secret">
+<meta name="twitter:title" content="Luojh的博客">
+<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -164,231 +163,106 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-FirstArticle" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Hexo搭建个人博客
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/17/nodejs/nodejs-fs/" class="archive-article-date">
+  	<time datetime="2017-04-17T08:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/17/nodejs/nodejs-fs/">Node.js的文件系统Api</a>
     </h1>
   
 
-        
-        <a href="/2017/02/08/FirstArticle/" class="archive-article-date">
-  	<time datetime="2017-02-08T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>过完新年,在公司闲来无事,便索性想搭建自己的博客系统,其实这个想法很早就有了,不过16年太过于忙碌,生活工作节奏太乱,没有好好沉静,反思和沉淀。<a id="more"></a><br>其实好多事情,在没有经历过,会觉得那些东西看起来如此牛逼,但是真正经历了,自己做了之后,会发现,牛逼的不仅是那些事,还有自己~~此篇教程是纪念我花费在博客上面的所有逝去的时间🌺 ,并且帮助那些想要建立博客的同学们☀️。<br>那么,现在直接奉上搭建步骤:</p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo?"></a>Hexo?</h3><blockquote>
-<p>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds.</p>
-</blockquote>
-<p>大致解释是:Hexo是一个快速，简单和强大的博客框架。你写的Markdown（或其他语言）的帖子Hexo在几秒钟内就能生成静态文件;</p>
-<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>安装Hexo非常容易。但是，你需要先安装几个其他的东西：</p>
-<p><code>Node.js</code><br>作用：用来生成静态页面的 到Node.js<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>下载相应平台的最新版本，一路安装即可。<a href="https://nodejs.org/en/" target="_blank" rel="external">官网入口</a></p>
-<p><code>Github账号</code><br>作用：用来做博客的远程创库、域名、静态资源服务器。怎么申请github的账号和ssh key等,请大家自行搜索,网络上资源还是很丰富的。</p>
-<h3 id="正式安装Hexo"><a href="#正式安装Hexo" class="headerlink" title="正式安装Hexo"></a>正式安装Hexo</h3><p>nodejs和git都安装好后，可执行如下命令安装hexo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure></p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>创建一个文件夹，如：Blog，进入到Blog里分别执行init命令和安装依赖命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<h3 id="生成静态页面"><a href="#生成静态页面" class="headerlink" title="生成静态页面"></a>生成静态页面</h3><p>继续再Blog目录下执行如下命令，生成静态页面:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate （hexo g  也可以）</div></pre></td></tr></table></figure></p>
-<h3 id="安装hexo-server插件"><a href="#安装hexo-server插件" class="headerlink" title="安装hexo-server插件"></a>安装hexo-server插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install hexo-server</div></pre></td></tr></table></figure>
-<h3 id="本地启动"><a href="#本地启动" class="headerlink" title="本地启动"></a>本地启动</h3><p>启动本地服务，进行文章预览调试，命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server   (hexo s  也可以)</div></pre></td></tr></table></figure></p>
-<p>浏览器输入localhost:4000进行预览博客网站,是不是很简陋呢,但是好歹有一个自己的家园了,也是很兴奋呢。但是现在都是在本地进行的,需要和github进行关联。</p>
-<h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法 然后建立关联,例如我的是:luojinghui.github.io,此时,你的目录应该是这样子:</p>
-<blockquote>
-<p>Blog<br>  　｜<br>  　｜－－ _config.yml<br>  　｜－－ node_modules<br>  　｜－－ public<br>  　｜－－ source<br>  　｜－－ db.json<br>  　｜－－ package.json<br>  　｜－－ scaffolds<br>  　｜－－ themes 　</p>
-</blockquote>
-<p>  现在我们需要修改_config.yml文件，用编辑器打开,翻到最后,改成这个样子(注意冒号后面的空格):<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/luojinghui/luojinghui.github.io</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>  执行如下命才能使用git部署(只需要执行一次):<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>  执行这个命令进行部署:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
-<p>  然后再浏览器中输入 <a href="http://luojinghui.github.io" target="_blank" rel="external">http://luojinghui.github.io</a> 就行了，我的 github 的账户叫 luojinghui ,把这个改成你 github 的账户名就行了</p>
-<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>  每次部署的步骤，可按以下三步来进行:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
-<p>  简写:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g -d</div></pre></td></tr></table></figure></p>
-<p>  一些常用命令：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; #新建文章</div><div class="line">hexo new page &quot;pageName&quot; #新建页面</div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line">hexo help  #查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div></pre></td></tr></table></figure></p>
-<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>  这里面有很多主题,可以参考: <a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">入口</a></p>
-<h3 id="图片路径"><a href="#图片路径" class="headerlink" title="图片路径"></a>图片路径</h3><p>  1.文章在 source/_posts下新建以.md为结尾的文件，编辑器可以用Webstrom、Sublime，支持 markdown 语法<br>  2.修改头像可以直接在主题里的 _config.yml 文件里面修改，友情链接，之类的都在这里<br>  3.创建文章的文件开头格式,可以用我现用的格式去写:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 填写标题</div><div class="line">tags: </div><div class="line">- tag1</div><div class="line">- tag2</div><div class="line">date: 2016/6/06 12:20:25</div><div class="line">reward: 是否支持打赏,填写true或者false</div><div class="line">keywords: 关键词1 关键词2...</div><div class="line">description: 填写描述</div><div class="line">---</div></pre></td></tr></table></figure></p>
-<p>  4.如果想引用本地图片路径,以根路径作为起始点,就可以了。例如: <code>/img/logo.png</code><br>  开始打理你的博客吧，有什么问题下面留言,我会回复的。</p>
-<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><blockquote>
-<p>问：如何让文章想只显示一部分和一个 阅读全文 的按钮？<br>    答：在文章中加一个 <code>&lt;!--more--&gt;</code> ， <code>&lt;!--more--&gt;</code> 后面的内容就不会显示出来了。 </p>
-</blockquote>
-<hr>
-<blockquote>
-<p>问：如何添加多说评论?<br>    答：在主题里的 _config.yml中找到<code>duoshuo:</code>,冒号后面填写你在多说申请用的域名,例如,我申请的是<code>luojinghui.duoshuo.com</code>,那么,在这里就填写luojinghui,就好了</p>
-</blockquote>
-<p>  转载请注明原地址，luojh的博客：<a href="http://luojh.me" target="_blank" rel="external">http://luojh.me</a> 谢谢！</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><p><br></p>
-<center>一生最重 不过饱餐与被爱</center>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/apply.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/w2.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Blog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Personal</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nodejs-fs</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2017/02/08/FirstArticle/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/04/17/nodejs/nodejs-async/" class="archive-article-date">
+  	<time datetime="2017-04-17T08:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2017/02/10/books/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2017-岂止于心
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/06/06/ldialog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LDialog-强大的jquery弹窗插件</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="FirstArticle" data-title="Hexo搭建个人博客" data-url="http://www.luojh.me/2017/02/08/FirstArticle/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"luojinghui"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/04/17/nodejs/nodejs-async/">Node.js之async-await使用</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nodejs-fs</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -418,8 +292,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

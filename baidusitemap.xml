@@ -3,6 +3,44 @@
 
 
     
+  <url>
+    <loc>http://www.luojh.me/2017/04/17/nodejs/nodejs-fs/</loc>
+    <lastmod>2017-04-17T10:17:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>Node.js的文件系统Api</title>
+        <pubTime>2017-04-17T08:20:25.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>nodejs-fs</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.luojh.me/2017/04/17/nodejs/nodejs-async/</loc>
+    <lastmod>2017-04-17T10:11:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>Node.js之async-await使用</title>
+        <pubTime>2017-04-17T08:20:25.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>nodejs-fs</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://www.luojh.me/2017/03/17/reactNative/reactNativeError/</loc>
