@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>LDialog-强大的jquery弹窗插件 | Luojh的博客</title>
+  <title>LDialog-jquery弹窗插件 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LDialog-强大的jquery弹窗插件,蒙版插件">
+  <meta name="description" content="LDialog-jquery弹窗插件,蒙版插件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LDialog-强大的jquery弹窗插件">
+<meta property="og:title" content="LDialog-jquery弹窗插件">
 <meta property="og:url" content="http://www.luojh.me/2016/06/06/ldialog/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="LDialog-强大的jquery弹窗插件,蒙版插件">
-<meta property="og:updated_time" content="2017-03-23T03:31:06.000Z">
+<meta property="og:description" content="LDialog-jquery弹窗插件,蒙版插件">
+<meta property="og:updated_time" content="2017-04-18T03:54:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LDialog-强大的jquery弹窗插件">
-<meta name="twitter:description" content="LDialog-强大的jquery弹窗插件,蒙版插件">
+<meta name="twitter:title" content="LDialog-jquery弹窗插件">
+<meta name="twitter:description" content="LDialog-jquery弹窗插件,蒙版插件">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -171,7 +171,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LDialog-强大的jquery弹窗插件
+      LDialog-jquery弹窗插件
     </h1>
   
 
@@ -194,7 +194,7 @@
 </li>
 </ul>
 <h3 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><ul>
-<li><p>在头部引入<code>ldialog.css</code>或者压缩过的<code>ldialog.min.css</code>文件,**同时将fonts字体图标文件放置在css同级目录中。 </p>
+<li><p>在头部引入<code>ldialog.css</code>或者压缩过的<code>ldialog.min.css</code>文件,**同时将fonts字体图标文件放置在css同级目录中。</p>
   <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"../css/ldialog.css"</span>/&gt;</div></pre></td></tr></table></figure>
 </li>
 <li><p>引入jquery以及ldialog.js文件：</p>
@@ -568,15 +568,15 @@
 <ul>
 <li><strong>LDialog.confirm(value, con, fun)</strong></li>
 </ul>
-<p>example: </p>
+<p>example:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LDialog.confirm(value, &#123;<span class="attr">iconData</span>: <span class="string">""</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    LDialog.msg(<span class="string">"删除成功！"</span>, &#123;<span class="attr">iconData</span>: <span class="string">""</span>, <span class="attr">iconColor</span>: <span class="string">"green"</span>, <span class="attr">iconSize</span>: <span class="string">"30px"</span>&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>和prompt方法使用相同，但是confirm没有input输入框。</p>
 <ul>
 <li><strong>LDialog.msg(value, con, fun)</strong></li>
 </ul>
 <p>value：必填，显示的文字，可以为空。<br>con： 选填，配置样式，可使用插件<strong>arg2</strong>的参数<br>fun： 选填，倒计时过后的回调函数，用来阻断函数执行。</p>
-<p>example: </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LDialog.msg(<span class="string">"删除成功！"</span>, &#123;<span class="attr">iconData</span>: <span class="string">""</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="number">123</span>);	</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LDialog.msg(<span class="string">"删除成功！"</span>, &#123;<span class="attr">iconData</span>: <span class="string">""</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="number">123</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <ul>
 <li><strong>LDialog.tip(value, con, fun)</strong></li>
 </ul>
@@ -753,7 +753,7 @@ tipsClose: $.noop <span class="comment">//定义tips倒计时回调函数</span>
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ldialog" data-title="LDialog-强大的jquery弹窗插件" data-url="http://www.luojh.me/2016/06/06/ldialog/"></div>
+	<div class="ds-thread" data-thread-key="ldialog" data-title="LDialog-jquery弹窗插件" data-url="http://www.luojh.me/2016/06/06/ldialog/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -896,14 +896,6 @@ tipsClose: $.noop <span class="comment">//定义tips倒计时回调函数</span>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">react-native-wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -920,6 +912,10 @@ tipsClose: $.noop <span class="comment">//定义tips倒计时回调函数</span>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -928,7 +924,11 @@ tipsClose: $.noop <span class="comment">//定义tips倒计时回调函数</span>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">react-native-wechat</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -14,10 +14,12 @@
 <meta property="og:url" content="http://www.luojh.me/2017/04/17/nodejs/nodejs-async/index.html">
 <meta property="og:site_name" content="Luojh的博客">
 <meta property="og:description" content="nodejs async | luojh的博客 | 前端骚年一枚">
-<meta property="og:updated_time" content="2017-04-17T10:11:22.000Z">
+<meta property="og:image" content="https://blog.leancloud.cn/wp-content/uploads/2015/11/async_image03.png">
+<meta property="og:updated_time" content="2017-04-18T05:04:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js之async-await使用">
 <meta name="twitter:description" content="nodejs async | luojh的博客 | 前端骚年一枚">
+<meta name="twitter:image" content="https://blog.leancloud.cn/wp-content/uploads/2015/11/async_image03.png">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -185,9 +187,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Node.js 7 night中引入了async/await用法，但是在Node.js 8和Javascript V8才可能正式激活async/await函数。<br><a id="more"></a></p>
-<h3 id="what’s-async"><a href="#what’s-async" class="headerlink" title="what’s async"></a>what’s async</h3><p>什么是async/await？以前使用Promise是如何实现异步操作的，下面案例是展示如何使用Promise和Fetch API抓取数据的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTrace</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> fetch(<span class="string">'http://www.luojh.me'</span>, &#123;</div><div class="line">    <span class="attr">method</span>: <span class="string">'get'</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">getTrace()</div><div class="line">  .then()</div><div class="line">  .catch()</div></pre></td></tr></table></figure></p>
-<p>使用async/await，能以非堵塞方式暂停执行，一直等待结果返回，如果promise返回的是拒绝不成功，拒绝值将抛出，能够被try/catch捕获。上面案例可使用async/await写成如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">async</span> <span class="title">getTrace</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> pageContent</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    pageContent = <span class="keyword">await</span> fetch(<span class="string">'https://www.jdon.com'</span>, &#123;</div><div class="line">      <span class="attr">method</span>: <span class="string">'get'</span></div><div class="line">    &#125;)</div><div class="line">  &#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">    <span class="built_in">console</span>.error(ex)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> pageContent</div><div class="line">&#125;</div><div class="line"></div><div class="line">getTrace().then();</div></pre></td></tr></table></figure></p>
+<h3 id="what’s-async"><a href="#what’s-async" class="headerlink" title="what’s async"></a>what’s async</h3><p>JavaScript 里面处理异步调用一直是非常恶心的一件事情。以前只能通过回调函数，后来渐渐又演化出来很多方案，最后 Promise 以简单、易用、兼容性好取胜，但是仍然有非常多的问题。其实 JavaScript 一直想在语言层面彻底解决这个问题，在 ES6 中就已经支持原生的 Promise，还引入了 Generator 函数，<br>终于在 ES7 中决定支持 async 和 await。<br><img src="https://blog.leancloud.cn/wp-content/uploads/2015/11/async_image03.png" alt="nodejs async"></p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>async/await 究竟是怎么解决异步调用的写法呢？简单来说，就是将异步操作用同步的写法来写。先来看下最基本的语法（ES7 代码片段）：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      resolve(<span class="number">123</span>);</div><div class="line">    &#125;, <span class="number">2000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> testAsync = <span class="keyword">async</span> () =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> t = <span class="keyword">await</span> f();</div><div class="line">  <span class="built_in">console</span>.log(t);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">testAsync();</div></pre></td></tr></table></figure></p>
+<p>首先定义了一个函数<span style="color: #2bb874"> f </span>，这个函数返回一个<span style="color: #2bb874"> Promise </span>，并且会延时 2 秒，<span style="color: #2bb874"> resolve </span> 并且传入值 <span style="color: #2bb874"> 123 </span>。<span style="color: #2bb874"> testAsync </span>函数在定义时使用了关键字 <span style="color: #2bb874"> async </span>，然后函数体中配合使用了 <span style="color: #2bb874"> await </span>，最后执行 <span style="color: #2bb874"> testAsync </span>。整个程序会在 <span style="color: #2bb874"> 2 </span> 秒后输出 <span style="color: #2bb874"> 123 </span>，也就是说 <span style="color: #2bb874"> testAsync </span> 中常量 <span style="color: #2bb874"> t </span> 取得了 <span style="color: #2bb874"> f </span> 中 <span style="color: #2bb874"> resolve </span> 的值，并且通过 <span style="color: #2bb874"> await </span> 阻塞了后面代码的执行，直到 <span style="color: #2bb874"> f </span> 这个异步函数执行完。</p>
+<h3 id="对比-Promise"><a href="#对比-Promise" class="headerlink" title="对比 Promise"></a>对比 Promise</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      resolve(<span class="number">123</span>);</div><div class="line">    &#125;, <span class="number">2000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> testAsync = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  f().then(<span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(t);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">testAsync();</div></pre></td></tr></table></figure>
+<p>下面案例是展示如何使用Promise和Fetch API抓取数据的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTrace</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> fetch(<span class="string">'http://www.luojh.me'</span>, &#123;</div><div class="line">    <span class="attr">method</span>: <span class="string">'get'</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">getTrace()</div><div class="line">  .then()</div><div class="line">  .catch()</div></pre></td></tr></table></figure></p>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>使用async/await，能以非堵塞方式暂停执行，一直等待结果返回，如果promise返回的是拒绝不成功，拒绝值将抛出，能够被try/catch捕获。上面案例可使用async/await写成如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">async</span> <span class="title">getTrace</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> pageContent</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    pageContent = <span class="keyword">await</span> fetch(<span class="string">'https://www.jdon.com'</span>, &#123;</div><div class="line">      <span class="attr">method</span>: <span class="string">'get'</span></div><div class="line">    &#125;)</div><div class="line">  &#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">    <span class="built_in">console</span>.error(ex)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> pageContent</div><div class="line">&#125;</div><div class="line"></div><div class="line">getTrace().then();</div></pre></td></tr></table></figure></p>
+<p>如果 <span style="color: #2bb874">try</span> 范围内包含多个 <span style="color: #2bb874"> await </span>，那么 <span style="color: #2bb874"> catch </span> 会返回第一个 <span style="color: #2bb874"> reject </span> 的值或错误。</p>
 <h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><p>使用async读取文件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> readFile = <span class="function"><span class="params">()</span> =&gt;</span> (<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">  fs.readFile(__dirname + <span class="string">'/test.txt'</span>, &#123;<span class="attr">flag</span>: <span class="string">'r+'</span>, <span class="attr">encoding</span>: <span class="string">'utf8'</span>&#125;, (err,data) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(err) &#123;</div><div class="line">      reject();</div><div class="line">      <span class="built_in">console</span>.log(err);</div><div class="line">      <span class="keyword">return</span> ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    resolve(data);</div><div class="line">  &#125;)</div><div class="line">&#125;));</div><div class="line"></div><div class="line"><span class="function">(<span class="params"><span class="keyword">async</span> (</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> files = <span class="keyword">await</span> readFile();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'result: '</span> + files);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>如果不能运行，可能是nodejs是nightly版本，未正式支持 async/await，命令行该为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node --harmony-async-await app.js</div></pre></td></tr></table></figure></p>
 
       
 
@@ -306,18 +314,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/17/nodejs/nodejs-fs/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Node.js的文件系统Api
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/17/reactNative/reactNativeError/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React-Native踩过的坑---分享篇</div>
+    <a href="/2017/04/17/nodejs/nodejs-fs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js的文件系统Api</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -474,14 +473,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">react-native-wechat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -498,6 +489,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -506,7 +501,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">react-native-wechat</a>
               </li>
              
               <li class="article-tag-list-item">
