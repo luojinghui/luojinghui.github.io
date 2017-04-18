@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://www.luojh.me/2017/04/17/nodejs/nodejs-fs/index.html">
 <meta property="og:site_name" content="Luojh的博客">
 <meta property="og:description" content="nodejs fs 文件系统api | luojh的博客 | 前端骚年一枚">
-<meta property="og:updated_time" content="2017-04-18T04:02:41.000Z">
+<meta property="og:updated_time" content="2017-04-18T08:21:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js的文件系统Api">
 <meta name="twitter:description" content="nodejs fs 文件系统api | luojh的博客 | 前端骚年一枚">
@@ -184,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Node.js 7 night中引入了async/await用法，但是在Node.js 8和Javascript V8才可能正式激活async/await函数。<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//公共引用</span></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>),</div><div class="line">path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div></pre></td></tr></table></figure></p>
+        <p>Node.js的文件系统fs的Api<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//公共引用</span></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>),</div><div class="line">path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div></pre></td></tr></table></figure></p>
 <h3 id="1、读取文件readFile函数"><a href="#1、读取文件readFile函数" class="headerlink" title="1、读取文件readFile函数"></a>1、读取文件readFile函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//readFile(filename,[options],callback);</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * filename, 必选参数，文件名</div><div class="line"> * [options],可选参数，可指定flag（文件操作选项，如r+ 读写；w+ 读写，文件不存在则创建）及encoding属性</div><div class="line"> * callback 读取文件后的回调函数，参数默认第一个err,第二个data 数据</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="comment">// fs.readFile(__dirname + '/test.txt', &#123;flag: 'r+', encoding: 'utf8'&#125;, function (err, data) &#123;</span></div><div class="line"><span class="comment">//   if(err) &#123;</span></div><div class="line"><span class="comment">//     console.error(err);</span></div><div class="line"><span class="comment">//     return;</span></div><div class="line"><span class="comment">//   &#125;</span></div><div class="line"><span class="comment">//   console.log(data);</span></div><div class="line"><span class="comment">// &#125;);</span></div><div class="line"></div><div class="line"><span class="comment">//es7 async写法</span></div><div class="line"><span class="keyword">var</span> readFile = <span class="function"><span class="params">()</span> =&gt;</span> (<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">  fs.readFile(__dirname + <span class="string">'/test.txt'</span>, &#123;<span class="attr">flag</span>: <span class="string">'r+'</span>, <span class="attr">encoding</span>: <span class="string">'utf8'</span>&#125;, (err,data) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(err) &#123;</div><div class="line">      reject();</div><div class="line">      <span class="built_in">console</span>.log(err);</div><div class="line">      <span class="keyword">return</span> ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    resolve(data);</div><div class="line">  &#125;)</div><div class="line">&#125;));</div><div class="line"></div><div class="line"><span class="function">(<span class="params"><span class="keyword">async</span> (</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> files = <span class="keyword">await</span> readFile();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'result: '</span> + files);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 <h3 id="2、写文件"><a href="#2、写文件" class="headerlink" title="2、写文件"></a>2、写文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// fs.writeFile(filename,data,[options],callback);</span></div><div class="line"><span class="keyword">var</span> w_data = <span class="string">'这是一段通过fs.writeFile函数写入的内容；\r\n'</span>;</div><div class="line"><span class="keyword">var</span> w_data = <span class="keyword">new</span> Buffer(w_data);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * filename, 必选参数，文件名</div><div class="line"> * data, 写入的数据，可以字符或一个Buffer对象</div><div class="line"> * [options],flag,mode(权限),encoding</div><div class="line"> * callback 读取文件后的回调函数，参数默认第一个err,第二个data 数据</div><div class="line"> */</div><div class="line"></div><div class="line">fs.writeFile(__dirname + <span class="string">'/test.txt'</span>, w_data, &#123;<span class="attr">flag</span>: <span class="string">'a'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">   <span class="keyword">if</span>(err) &#123;</div><div class="line">    <span class="built_in">console</span>.error(err);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="string">'写入成功'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h3 id="3、以追加方式写文件"><a href="#3、以追加方式写文件" class="headerlink" title="3、以追加方式写文件"></a>3、以追加方式写文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// fs.appendFile(filename,data,[options],callback);</span></div><div class="line"></div><div class="line">fs.appendFile(__dirname + <span class="string">'/test.txt'</span>, <span class="string">'使用fs.appendFile追加文件内容'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'追加内容完成'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -479,6 +479,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -499,14 +507,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nodejs-fs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">react-native</a>
               </li>
              
@@ -515,11 +515,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">nodejs-fs</a>
               </li>
             
             <div class="clearfix"></div>
