@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.luojh.me/message/index.html</loc>
+    
+    <lastmod>2017-06-05T03:37:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.luojh.me/2017/04/17/nodejs/nodejs-fs/</loc>
     
     <lastmod>2017-04-18T08:23:52.000Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://www.luojh.me/2016/01/12/css/scss-demo/</loc>
     
     <lastmod>2017-03-23T03:47:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.luojh.me/message/index.html</loc>
-    
-    <lastmod>2017-03-17T17:25:16.000Z</lastmod>
     
   </url>
   
