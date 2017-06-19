@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.luojh.me/instagram/ins.json</loc>
+    
+    <lastmod>2017-06-19T04:10:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.luojh.me/message/index.html</loc>
     
     <lastmod>2017-06-15T10:35:28.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://www.luojh.me/2016/06/06/ldialog/</loc>
     
     <lastmod>2017-04-18T03:54:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.luojh.me/instagram/ins.json</loc>
-    
-    <lastmod>2017-04-17T04:41:36.000Z</lastmod>
     
   </url>
   
