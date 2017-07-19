@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Tag: Blog | Luojh的博客</title>
+  <title>CSS3之Grid布局 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luojh的博客">
-<meta property="og:url" content="http://www.luojh.me/tags/Blog/index.html">
+  <meta name="description" content="grid-layout布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3之Grid布局">
+<meta property="og:url" content="http://www.luojh.me/2017/07/13/css/css-grid-layout/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:description" content="grid-layout布局">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/grid/h-3.svg">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/grid/h-4.svg">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/grid/h-5.svg">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/grid/h-6.PNG">
+<meta property="og:updated_time" content="2017-07-17T04:19:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta name="twitter:title" content="CSS3之Grid布局">
+<meta name="twitter:description" content="grid-layout布局">
+<meta name="twitter:image" content="http://ol5l1z7pa.bkt.clouddn.com/grid/h-3.svg">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -163,68 +169,202 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css/css-grid-layout" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/08/FirstArticle/" class="archive-article-date">
-  	<time datetime="2017-02-08T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/08/FirstArticle/">Hexo搭建个人博客</a>
+    <h1 class="article-title" itemprop="name">
+      CSS3之Grid布局
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/07/13/css/css-grid-layout/" class="archive-article-date">
+  	<time datetime="2017-07-13T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS Grid布局出来已经很久了,在今年3月份正式得到所有浏览器的支持,也正因为此,今后的html布局也将要以grid布局为基础,进行开发。它是继flexbox布局之后又一个强大的布局系统,可以完成flexbox布局完成不了的复杂,智能,响应式布局。<br><a id="more"></a><br>所以,很有必要去认真的学习一下。</p>
+<h3 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h3><p>在学习这个属性之前,很有必要熟悉一下对应这个属性的一些专业术语,在整个网格中常用的术语有:</p>
+<ul>
+<li>网格线(Grid lines)</li>
+<li>水平或纵向网格轨道(Grid tracks)</li>
+<li>行(Rows) </li>
+<li>列(Columns)</li>
+<li>间距(Gutters) 轨道行和列之间的间距</li>
+<li>单元格(Grid cells) 轨道相交产生的内容区域,相当于table中的单元格<br><img src="http://ol5l1z7pa.bkt.clouddn.com/grid/h-3.svg" alt="术语" style="max-width: 600px;"><br><code>1</code>表示Grid lines,  <code>2</code>表示Columns,  <code>3</code>表示Rows,  <code>4</code>表示Cells</li>
+</ul>
+<h4 id="间距"><a href="#间距" class="headerlink" title="间距"></a>间距</h4><p>对于网格布局,两个轨道之间的区域称之为间距(gutters)<br><img src="http://ol5l1z7pa.bkt.clouddn.com/grid/h-4.svg" alt="术语" style="max-width: 600px;"></p>
+<h4 id="网格区域-Grid-area"><a href="#网格区域-Grid-area" class="headerlink" title="网格区域(Grid area)"></a>网格区域(Grid area)</h4><p>网格区域是由任何四个网格线组成的区域，它可以包含任意数量的网格单元格。<br><img src="http://ol5l1z7pa.bkt.clouddn.com/grid/h-5.svg" alt="术语" style="max-width: 600px;"></p>
+<p>相信这些术语能够更好地帮组我们理解Grid布局,接下来花点时间让我们创建一个网格，并且在浏览器能看到其效果。</p>
+<h3 id="网格容器"><a href="#网格容器" class="headerlink" title="网格容器"></a>网格容器</h3><p>通过设置css属性<code>display: grid</code>或者<code>display: inline-grid</code>可以创建一个网格容器,网格容器中的所有子元素就会自动变成网格项目(grid item)<br>网格项目默认放在行中,并且跨网格容器的全宽,在codePen中切换grid Or inline-grid 进行体验。</p>
+<p><iframe height="265" scrolling="no" title="vZPYQv" src="//codepen.io/LeoJingHui/embed/vZPYQv/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/LeoJingHui/pen/vZPYQv/" target="_blank" rel="external">vZPYQv</a> by Leojh (<a href="https://codepen.io/LeoJingHui" target="_blank" rel="external">@LeoJingHui</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe></p>
+<blockquote>
+<p>column, float, clear, 和 vertical-align 元素对网格容器不起作用。</p>
+</blockquote>
+<p>接下来需要定义网格样式风格,也就是设置网格行和列,我们可以通过<code>grid-template-columns</code>和<code>grid-template-rows</code>来设置。</p>
+<div style="margin: 5px 0px;font-size: 20px;font-weight: bold;font-family: sans-serif;">属性1: grid-template-rows | grid-template-columns :</div>
+
+<p>利用以空格分隔的值定义网格的列和行。值的大小代表轨道的大小，并且它们之间的空格表示网格线。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">display</span>: grid;</div><div class="line">    <span class="attribute">grid-template-columns</span>: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ... | subgrid;</div><div class="line">    <span class="attribute">grid-template-rows</span>: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ... | subgrid;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>track-size: 可以是一个长度、百分比或者是网格中自由空间的一小部分(使用fr单位)<br>line-name: 你选择的任意名称<br>subgrid: 如果你的网格容器本身就是一个网格项(即嵌套网格)，你可以使用此属性指定行和列的大小继承于父元素而不是自身指定。<br>示例:<br>当你在值之间留有空格时，网络线就会自动分配数值名称:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">40px</span> <span class="number">50px</span> auto <span class="number">50px</span> <span class="number">40px</span>;</div><div class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">25%</span> <span class="number">100px</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://ol5l1z7pa.bkt.clouddn.com/grid/h-6.PNG" alt="术语" style="width: 90;%max-width: 600px;"></p>
+<p>但是你也可以显示命名，请参考下面括号语法中的名称命名方式:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.grid</span> &#123;</div><div class="line">    <span class="attribute">display</span>: grid;</div><div class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">grid-template-rows</span>: [row1-start] <span class="number">20%</span> [row1-end] <span class="number">40%</span> [third-line] auto [last-line];</div><div class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(3, 20% [row1-end]) <span class="number">1</span>fr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><iframe height="265" scrolling="no" title="EXMjPB" src="//codepen.io/LeoJingHui/embed/EXMjPB/?height=265&theme-id=0&default-tab=css,result&embed-version=2" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="https://codepen.io/LeoJingHui/pen/EXMjPB/" target="_blank" rel="external">EXMjPB</a> by Leojh (<a href="https://codepen.io/LeoJingHui" target="_blank" rel="external">@LeoJingHui</a>) on <a href="https://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe><br>请注意，一条网格线可以具有有多个名称。例如，这里的第二行将有两个名字: row1-end 和 row2-start<br>如果你的定义中包含重复的部分，你可以使用 repeat() 表示法进行精简:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(3, 20% <span class="selector-attr">[row1-end]</span>) 1<span class="selector-tag">fr</span>;</div></pre></td></tr></table></figure></p>
+<p>等效于:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">grid-template-columns</span>: 20% <span class="selector-attr">[row1-end]</span> 20% <span class="selector-attr">[row1-end]</span> 20% <span class="selector-attr">[row1-end]</span> 1<span class="selector-tag">fr</span>;</div></pre></td></tr></table></figure></p>
+<p>fr 单位允许你将一个轨道大小设置为网格容器内自由空间的一小部分。如下所示，每个网格项就会占据网格容器宽度的三分之一:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里自由空间表示除去非弹性项以后剩余的空间。在此示例中的 fr 单位的可用空间表示减去50px以后的空间大小:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">50px</span> <span class="number">1</span>fr <span class="number">1</span>fr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<div style="margin: 5px 0px;font-size: 20px;font-weight: bold;font-family: sans-serif;">属性2: grid-template-areas :</div>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+	                  
+	                  <div class="reward-box-item">
+                      <img class="reward-img" src="/img/w2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+	                  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                  </div>
+	                <div style="text-align: center; color: #fff; font-size: 16px">长按图片识别二维码</div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Blog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Personal</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">grid-layout</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2017/07/13/css/css-grid-layout/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/04/17/nodejs/nodejs-fs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js的文件系统Api</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<div id="SOHUCS" sid="css/css-grid-layout" data-thread-key="css/css-grid-layout" data-title="CSS3之Grid布局" data-url="http://www.luojh.me/2017/07/13/css/css-grid-layout/"></div>
+	<script type="text/javascript">
+		(function(){
+			var appid = 'cyt0RTFO0';
+			var conf = 'prod_4b64393a245101a00ae308dc2dc1f012';
+			var width = window.innerWidth || document.documentElement.clientWidth;
+			if (width < 960) {
+				window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -254,9 +394,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
