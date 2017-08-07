@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Tag: ldialog | Luojh的博客</title>
+  <title>React-Native开发之原生回调RN发送消息 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luojh的博客">
-<meta property="og:url" content="http://www.luojh.me/tags/ldialog/index.html">
+  <meta name="description" content="React-Native开发之原生回调RN发送消息 | luojh的博客 | 前端骚年一枚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Native开发之原生回调RN发送消息">
+<meta property="og:url" content="http://www.luojh.me/2017/08/07/reactNative/reactNativeSendEvent2/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:description" content="React-Native开发之原生回调RN发送消息 | luojh的博客 | 前端骚年一枚">
+<meta property="og:updated_time" content="2017-08-07T09:45:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta name="twitter:title" content="React-Native开发之原生回调RN发送消息">
+<meta name="twitter:description" content="React-Native开发之原生回调RN发送消息 | luojh的博客 | 前端骚年一枚">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -163,68 +164,219 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-reactNative/reactNativeSendEvent2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/06/ldialog/" class="archive-article-date">
-  	<time datetime="2016-06-06T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/06/ldialog/">LDialog-jquery弹窗插件</a>
+    <h1 class="article-title" itemprop="name">
+      React-Native开发之原生回调RN发送消息
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/07/reactNative/reactNativeSendEvent2/" class="archive-article-date">
+  	<time datetime="2017-08-07T06:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RN和原生之间的消息传递,方法在上期介绍了三种,并且详细的介绍了其中的一种,即原生向RN发送事件传递消息,另外还有另外两种方式是通过RN向原生请求数据。在今天的这篇文章里面,就好好聊聊这两种情况。<br><a id="more"></a></p>
+<hr>
+<p><span style="color: red; font-size: 18px;">回顾:</span><br>在rn官网,可以看到关于原生模块(android)向rn发送消息,即原生与rn相通信,FB实现了自己的一套交互体系:</p>
+<ul>
+<li><strong>使用回调函数Callback，它提供了一个函数来把返回值传回JavaScript</strong></li>
+<li><strong>使用Promise来实现</strong></li>
+<li><strong>RCTDeviceEventEmitter 事件方式</strong><br>三种方式各具有不同的优缺点:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方式</th>
+<th style="text-align:center">优点</th>
+<th style="text-align:center">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Callback</td>
+<td style="text-align:center">js调用，Native返回</td>
+<td style="text-align:center">CallBack为异步操作，原生还在执行操作时,callback已经执行了,返回时机不确定</td>
+</tr>
+<tr>
+<td style="text-align:center">Promise</td>
+<td style="text-align:center">JS调用，Native返回</td>
+<td style="text-align:center">每次使用需要JS调用一次</td>
+</tr>
+<tr>
+<td style="text-align:center">RCTDeviceEventEmitter</td>
+<td style="text-align:center">可任意时刻传递，Native主导控制</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color: red; font-size: 18px;">开始:</span><br>这篇文章主要介绍通过Promise方式给RN回调对应的数据,Promise是一种很常见的传递数据的方式,在rn端微信,支付宝支付,分享等功能,都应用了Promise进行传递数据。所以,很有必要好好深入研究一下,从而自己能够实现对原生SDK的操作。</p>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>Promise 是 ES6 中增加的对于异步编程和回调更加友好的 API。<br>原生模块是在 com.facebook.react.bridge 中定义的 Promise 接口，实现了 resolve 和 reject 方法，resolve 用来处理正确结果，reject 用来处理异常。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//要导出一个方法给 JavaScript 使用，Java 方法需要使用注解 @ReactMethod，方法的返回类型必须为 void</span></div><div class="line">@ReactMethod</div><div class="line">public <span class="keyword">void</span> login(<span class="built_in">String</span> name, <span class="built_in">String</span> password, <span class="built_in">Promise</span> promise) &#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(name)) &#123;</div><div class="line">            promise.reject(<span class="string">"-1"</span>, <span class="string">"name is empty"</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">new</span> LoginTask().login(name, password)) &#123;</div><div class="line">            WritableMap map = Arguments.createMap();</div><div class="line">            map.putString(<span class="string">"name"</span>, name);</div><div class="line">            promise.resolve(map);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            promise.reject(<span class="string">"-3"</span>, <span class="string">"login failure"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">        promise.reject(e);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在 JavaScript 中可以这样调用:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">NativeModules.LoginModule.login(<span class="string">'name'</span>, <span class="string">'password'</span>)</div><div class="line">    .then(</div><div class="line">      <span class="function">(<span class="params">map</span>) =&gt;</span> &#123;</div><div class="line">        alert(map.name)</div><div class="line">      &#125;</div><div class="line">    )</div><div class="line">    .catch(</div><div class="line">      <span class="function">(<span class="params">code, err</span>) =&gt;</span> &#123;</div><div class="line">        alert(err)</div><div class="line">      &#125;</div><div class="line">    )</div></pre></td></tr></table></figure></p>
+<p>或者用 async/await 来修饰，以同步方式调用原生模块:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">async</span> login() =&gt; &#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">      <span class="keyword">let</span> &#123; ame &#125; = <span class="keyword">await</span> NativeModules.LoginModule.login(<span class="string">'name'</span>, <span class="string">'password'</span>);</div><div class="line">      <span class="built_in">console</span>.log(name);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span> (code, err) &#123;</div><div class="line">      alert(err)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Callback"><a href="#Callback" class="headerlink" title="Callback"></a>Callback</h3><p>Callback 是 com.facebook.react.bridge 中的一个接口，作为 ReactMethod 的一个传参，用来映射 JavaScript 的回调函数（function）。<br>Callback 接口只定义了一个方法 invoke，invoke 接受多个参数，这个参数必须是 com.facebook.react.bridge 中支持的参数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">@ReactMethod</div><div class="line">public <span class="keyword">void</span> login(<span class="built_in">String</span> name, <span class="built_in">String</span> password, Callback success, Callback failure) &#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(name)) &#123;</div><div class="line">            failure.invoke(<span class="string">"name is empty"</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">new</span> LoginTask().login(name, password)) &#123;</div><div class="line">            success.invoke(name);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            failure.invoke(<span class="string">"login failure"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">        failure.invoke(e.getMessage());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在 JavaScript 中可以这样调用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NativeModules.LoginModule.login(<span class="string">'name'</span>, <span class="string">'password'</span>, (name) =&gt; &#123;</div><div class="line">    alert(name)</div><div class="line">  &#125;, (err) =&gt; &#123;</div><div class="line">    alert(err)</div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<p>恩。。。今天的分享就是这些啦,有疑问可以在评论处留言。<br>分享三篇相关博文:</p>
+<ul>
+<li>React Native基于最新版本实现JsBundle预加载，解决白屏等待，界面秒开优化。<a style="color: red;" href="http://blog.csdn.net/u013718120/article/details/71538263" target="_blank" rel="external">传送门</a></li>
+<li>React Native与Android通信交互 <a style="color: red;" href="http://blog.csdn.net/u013718120/article/details/55506238" target="_blank" rel="external">传送门</a></li>
+<li>Android布局加载React Native视图 <a style="color: red;" href="http://blog.csdn.net/u013718120/article/details/73985790#comments" target="_blank" rel="external">传送门</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+	                  
+	                  <div class="reward-box-item">
+                      <img class="reward-img" src="/img/w2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+	                  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                  </div>
+	                <div style="text-align: center; color: #fff; font-size: 16px">长按图片识别二维码</div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">React-Native</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ldialog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2017/08/07/reactNative/reactNativeSendEvent2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/02/reactNative/reactSendEvent/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React-Native开发之原生模块向JavaScript发送事件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<div id="SOHUCS" sid="reactNative/reactNativeSendEvent2" data-thread-key="reactNative/reactNativeSendEvent2" data-title="React-Native开发之原生回调RN发送消息" data-url="http://www.luojh.me/2017/08/07/reactNative/reactNativeSendEvent2/"></div>
+	<script type="text/javascript">
+		(function(){
+			var appid = 'cyt0RTFO0';
+			var conf = 'prod_4b64393a245101a00ae308dc2dc1f012';
+			var width = window.innerWidth || document.documentElement.clientWidth;
+			if (width < 960) {
+				window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -254,9 +406,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
