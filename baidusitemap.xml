@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>http://www.luojh.me/2017/08/07/reactNative/reactNativeSendEvent2/</loc>
     <lastmod>2017-08-07T09:45:38.000Z</lastmod>
@@ -11,9 +12,9 @@
         <title>React-Native开发之原生回调RN发送消息</title>
         <pubTime>2017-08-07T06:20:25.000Z</pubTime>
         
-        <tag>React-Native</tag>
-         
         <tag>android</tag>
+         
+        <tag>React-Native</tag>
          
          
            
@@ -30,9 +31,9 @@
         <title>React-Native开发之原生模块向JavaScript发送事件</title>
         <pubTime>2017-08-02T07:20:25.000Z</pubTime>
         
-        <tag>React-Native</tag>
-         
         <tag>android</tag>
+         
+        <tag>React-Native</tag>
          
          
            
@@ -49,9 +50,9 @@
         <title>MAC安装和配置android-sdk</title>
         <pubTime>2017-07-19T08:20:25.000Z</pubTime>
         
-        <tag>android</tag>
-         
         <tag>nodejs</tag>
+         
+        <tag>android</tag>
          
          
            
@@ -114,7 +115,6 @@
     </data>
     </url>
 
-    
     
     
   <url>

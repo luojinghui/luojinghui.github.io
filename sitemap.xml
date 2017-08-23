@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.luojh.me/message/index.html</loc>
+    
+    <lastmod>2017-08-23T04:59:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.luojh.me/2017/08/07/reactNative/reactNativeSendEvent2/</loc>
     
     <lastmod>2017-08-07T09:45:38.000Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://www.luojh.me/instagram/ins.json</loc>
     
     <lastmod>2017-06-19T04:10:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.luojh.me/message/index.html</loc>
-    
-    <lastmod>2017-06-15T10:35:28.000Z</lastmod>
     
   </url>
   
