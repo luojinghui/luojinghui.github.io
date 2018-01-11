@@ -1,0 +1,110 @@
+.article-info-index.article-info {
+    display: none;
+}
+
+.line {
+    border-bottom: 1px solid #dcdcdc;
+    margin: 3px;
+}
+
+.content {
+    padding: 10px 0 20px;
+    text-align: center;
+}
+
+.tc {
+    text-align: center;
+}
+
+#footer {
+    display: none;
+}
+.ds-service-list.ds-additional-services {
+    display: none!important;
+}
+.ds-more-services {
+    display: none!important;
+}
+#ds-thread #ds-reset .ds-login-buttons {
+    text-align: center;
+}
+#ds-thread #ds-reset .ds-login-buttons p {
+    display: inline-block;
+    vertical-align: middle;
+    float: inherit;
+}
+.ds-service-link.ds-renren {
+    display: none!important;
+}
+#ds-thread #ds-reset .ds-login-buttons .ds-social-links {
+    display: inline-block;
+    vertical-align: middle;
+    float: inherit;
+    width: 182px;
+    height: 26px;
+}
+.article-header h1 {
+    color: #fff!important;
+}
+.overlay {
+    /*background: rgba(85, 128, 0, 0.16)!important;*/
+    background: rgba(26, 128, 6, 0.16) !important;
+}
+
+.mid-col {
+    background: rgba(255, 255, 255, 0.69);
+    padding: 0px 0px 17px 0px;
+}
+
+.left-col {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+body {
+    /*background: url(/img/bg-3.jpg) 0% 0% / cover fixed;*/
+    background: url(/img/sea2.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.article {
+    margin: 30px;
+    /* color: #fff; */
+    position: relative;
+    border: none;
+    background: rgba(255, 255, 255, 0.29);
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.ds-post-repost, .ds-post-report {
+    display: none !important;
+}
+
+.ds-comments-info {
+    display: none;
+}
+
+#ds-thread #ds-reset .ds-comments, #ds-thread #ds-reset .ds-paginator {
+    border-bottom: none;
+}
+
+.ds-post.ds-post-placeholder {
+    color: #fff;
+}
+.iframe {
+    display: block;margin: 5px auto;padding-bottom: 26px;height: 110px;
+}
+@media screen and (max-width: 800px) {
+    .article-header {
+        border-bottom: none;
+    }
+    .article-header {
+        display: none;
+    }
+}
+@media screen and (max-width: 432px) {
+    .iframe {
+        display: block;margin: 5px auto;padding-bottom: 26px;height: 110px;
+        width: 250px;
+    }
+}

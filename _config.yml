@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Luo's Secret
-subtitle: 突然好想你,你会在哪里
-description: First
-author: Leo&Luo
-language:
-timezone:
+title: Luojh的博客
+subtitle: 美好的事情，即将发生
+description: 骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。
+author: Leo-jinghui
+email: luojinghui424@gmail.com
+keywords: "前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.luojh.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -71,6 +71,25 @@ deploy:
   type: git
   repository: https://github.com/luojinghui/luojinghui.github.io
   branch: master
+
+# hexo sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+
 
 jsonContent:
     meta: false
