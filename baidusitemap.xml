@@ -48,25 +48,6 @@
 
     
   <url>
-    <loc>http://www.luojh.me/2017/03/17/reactNative/reactNativeError/</loc>
-    <lastmod>2018-01-11T14:25:36.571Z</lastmod>
-    <data>
-        <display>
-        <title>React-Native踩过的坑---分享篇</title>
-        <pubTime>2017-03-17T08:20:25.000Z</pubTime>
-        
-        <tag>react-native</tag>
-         
-        <tag>react-native-wechat</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.luojh.me/2017/07/19/reactNative/initAndroidSdk/</loc>
     <lastmod>2018-01-11T14:25:36.571Z</lastmod>
     <data>
@@ -86,16 +67,16 @@
 
     
   <url>
-    <loc>http://www.luojh.me/2017/04/17/nodejs/nodejs-async/</loc>
-    <lastmod>2018-01-11T14:25:36.570Z</lastmod>
+    <loc>http://www.luojh.me/2017/03/17/reactNative/reactNativeError/</loc>
+    <lastmod>2018-01-11T14:25:36.571Z</lastmod>
     <data>
         <display>
-        <title>Node.js之async-await使用</title>
-        <pubTime>2017-04-17T08:20:25.000Z</pubTime>
+        <title>React-Native踩过的坑---分享篇</title>
+        <pubTime>2017-03-17T08:20:25.000Z</pubTime>
         
-        <tag>nodejs</tag>
+        <tag>react-native</tag>
          
-        <tag>nodejs-fs</tag>
+        <tag>react-native-wechat</tag>
          
          
            
@@ -110,6 +91,25 @@
     <data>
         <display>
         <title>Node.js的文件系统Api</title>
+        <pubTime>2017-04-17T08:20:25.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>nodejs-fs</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.luojh.me/2017/04/17/nodejs/nodejs-async/</loc>
+    <lastmod>2018-01-11T14:25:36.570Z</lastmod>
+    <data>
+        <display>
+        <title>Node.js之async-await使用</title>
         <pubTime>2017-04-17T08:20:25.000Z</pubTime>
         
         <tag>nodejs</tag>
