@@ -17,9 +17,9 @@
         <title>React-Native开发之原生模块向JavaScript发送事件</title>
         <pubTime>2017-08-02T07:20:25.000Z</pubTime>
         
-        <tag>android</tag>
-         
         <tag>React-Native</tag>
+         
+        <tag>android</tag>
          
          
            
@@ -36,26 +36,7 @@
         <title>React-Native开发之原生回调RN发送消息</title>
         <pubTime>2017-08-07T06:20:25.000Z</pubTime>
         
-        <tag>android</tag>
-         
         <tag>React-Native</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.luojh.me/2017/07/19/reactNative/initAndroidSdk/</loc>
-    <lastmod>2018-01-11T14:25:36.571Z</lastmod>
-    <data>
-        <display>
-        <title>MAC安装和配置android-sdk</title>
-        <pubTime>2017-07-19T08:20:25.000Z</pubTime>
-        
-        <tag>nodejs</tag>
          
         <tag>android</tag>
          
@@ -77,6 +58,25 @@
         <tag>react-native</tag>
          
         <tag>react-native-wechat</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.luojh.me/2017/07/19/reactNative/initAndroidSdk/</loc>
+    <lastmod>2018-01-11T14:25:36.571Z</lastmod>
+    <data>
+        <display>
+        <title>MAC安装和配置android-sdk</title>
+        <pubTime>2017-07-19T08:20:25.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>android</tag>
          
          
            
@@ -223,6 +223,23 @@
 
     
   <url>
+    <loc>http://www.luojh.me/2017/02/10/books/</loc>
+    <lastmod>2018-01-11T14:25:36.565Z</lastmod>
+    <data>
+        <display>
+        <title>2017-岂止于心</title>
+        <pubTime>2017-02-10T04:20:25.000Z</pubTime>
+        
+        <tag>Book</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.luojh.me/2017/02/08/FirstArticle/</loc>
     <lastmod>2018-01-11T14:25:36.565Z</lastmod>
     <data>
@@ -235,23 +252,6 @@
         <tag>Personal</tag>
          
         <tag>教程</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.luojh.me/2017/02/10/books/</loc>
-    <lastmod>2018-01-11T14:25:36.565Z</lastmod>
-    <data>
-        <display>
-        <title>2017-岂止于心</title>
-        <pubTime>2017-02-10T04:20:25.000Z</pubTime>
-        
-        <tag>Book</tag>
          
          
            
