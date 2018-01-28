@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Tag: jquery | Luojh的博客</title>
+  <title>Node.js之async-await使用 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luojh的博客">
-<meta property="og:url" content="http://www.luojh.me/tags/jquery/index.html">
+  <meta name="description" content="nodejs async | luojh的博客 | 前端骚年一枚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js之async-await使用">
+<meta property="og:url" content="http://www.luojh.me/2017/04/18/nodejs/nodejs-async/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:description" content="nodejs async | luojh的博客 | 前端骚年一枚">
+<meta property="og:image" content="https://blog.leancloud.cn/wp-content/uploads/2015/11/async_image03.png">
+<meta property="og:updated_time" content="2018-01-28T05:21:13.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta name="twitter:title" content="Node.js之async-await使用">
+<meta name="twitter:description" content="nodejs async | luojh的博客 | 前端骚年一枚">
+<meta name="twitter:image" content="https://blog.leancloud.cn/wp-content/uploads/2015/11/async_image03.png">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -163,68 +166,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nodejs/nodejs-async" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/06/ldialog/" class="archive-article-date">
-  	<time datetime="2016-06-06T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/06/ldialog/">LDialog-jquery弹窗插件</a>
+    <h1 class="article-title" itemprop="name">
+      Node.js之async-await使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/18/nodejs/nodejs-async/" class="archive-article-date">
+  	<time datetime="2017-04-18T08:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Node.js 7 night中引入了async/await用法，但是在Node.js 8和Javascript V8才可能正式激活async/await函数。<br><a id="more"></a></p>
+<h3 id="what’s-async"><a href="#what’s-async" class="headerlink" title="what’s async"></a>what’s async</h3><p>JavaScript 里面处理异步调用一直是非常恶心的一件事情。以前只能通过回调函数，后来渐渐又演化出来很多方案，最后 Promise 以简单、易用、兼容性好取胜，但是仍然有非常多的问题。其实 JavaScript 一直想在语言层面彻底解决这个问题，在 ES6 中就已经支持原生的 Promise，还引入了 Generator 函数，<br>终于在 ES7 中决定支持 async 和 await。<br><img src="https://blog.leancloud.cn/wp-content/uploads/2015/11/async_image03.png" alt="nodejs async"></p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>async/await 究竟是怎么解决异步调用的写法呢？简单来说，就是将异步操作用同步的写法来写。先来看下最基本的语法（ES7 代码片段）：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      resolve(<span class="number">123</span>);</div><div class="line">    &#125;, <span class="number">2000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> testAsync = <span class="keyword">async</span> () =&gt; &#123;</div><div class="line">  <span class="keyword">const</span> t = <span class="keyword">await</span> f();</div><div class="line">  <span class="built_in">console</span>.log(t);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">testAsync();</div></pre></td></tr></table></figure></p>
+<p>首先定义了一个函数<span style="color: #2bb874"> f </span>，这个函数返回一个<span style="color: #2bb874"> Promise </span>，并且会延时 2 秒，<span style="color: #2bb874"> resolve </span> 并且传入值 <span style="color: #2bb874"> 123 </span>。<span style="color: #2bb874"> testAsync </span>函数在定义时使用了关键字 <span style="color: #2bb874"> async </span>，然后函数体中配合使用了 <span style="color: #2bb874"> await </span>，最后执行 <span style="color: #2bb874"> testAsync </span>。整个程序会在 <span style="color: #2bb874"> 2 </span> 秒后输出 <span style="color: #2bb874"> 123 </span>，也就是说 <span style="color: #2bb874"> testAsync </span> 中常量 <span style="color: #2bb874"> t </span> 取得了 <span style="color: #2bb874"> f </span> 中 <span style="color: #2bb874"> resolve </span> 的值，并且通过 <span style="color: #2bb874"> await </span> 阻塞了后面代码的执行，直到 <span style="color: #2bb874"> f </span> 这个异步函数执行完。</p>
+<h3 id="对比-Promise"><a href="#对比-Promise" class="headerlink" title="对比 Promise"></a>对比 Promise</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      resolve(<span class="number">123</span>);</div><div class="line">    &#125;, <span class="number">2000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> testAsync = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  f().then(<span class="function">(<span class="params">t</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(t);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">testAsync();</div></pre></td></tr></table></figure>
+<p>下面案例是展示如何使用Promise和Fetch API抓取数据的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTrace</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> fetch(<span class="string">'http://www.luojh.me'</span>, &#123;</div><div class="line">    <span class="attr">method</span>: <span class="string">'get'</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">getTrace()</div><div class="line">  .then()</div><div class="line">  .catch()</div></pre></td></tr></table></figure></p>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>使用async/await，能以非堵塞方式暂停执行，一直等待结果返回，如果promise返回的是拒绝不成功，拒绝值将抛出，能够被try/catch捕获。上面案例可使用async/await写成如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">async</span> <span class="title">getTrace</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> pageContent</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    pageContent = <span class="keyword">await</span> fetch(<span class="string">'https://www.jdon.com'</span>, &#123;</div><div class="line">      <span class="attr">method</span>: <span class="string">'get'</span></div><div class="line">    &#125;)</div><div class="line">  &#125; <span class="keyword">catch</span> (ex) &#123;</div><div class="line">    <span class="built_in">console</span>.error(ex)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> pageContent</div><div class="line">&#125;</div><div class="line"></div><div class="line">getTrace().then();</div></pre></td></tr></table></figure></p>
+<p>如果 <span style="color: #2bb874">try</span> 范围内包含多个 <span style="color: #2bb874"> await </span>，那么 <span style="color: #2bb874"> catch </span> 会返回第一个 <span style="color: #2bb874"> reject </span> 的值或错误。</p>
+<h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><p>使用async读取文件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> readFile = <span class="function"><span class="params">()</span> =&gt;</span> (<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">  fs.readFile(__dirname + <span class="string">'/test.txt'</span>, &#123;<span class="attr">flag</span>: <span class="string">'r+'</span>, <span class="attr">encoding</span>: <span class="string">'utf8'</span>&#125;, (err,data) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(err) &#123;</div><div class="line">      reject();</div><div class="line">      <span class="built_in">console</span>.log(err);</div><div class="line">      <span class="keyword">return</span> ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    resolve(data);</div><div class="line">  &#125;)</div><div class="line">&#125;));</div><div class="line"></div><div class="line"><span class="function">(<span class="params"><span class="keyword">async</span> (</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> files = <span class="keyword">await</span> readFile();</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'result: '</span> + files);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>如果不能运行，可能是nodejs是nightly版本，未正式支持 async/await，命令行该为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node --harmony-async-await app.js</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+	                  
+	                  <div class="reward-box-item">
+                      <img class="reward-img" src="/img/w2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+	                  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                  </div>
+	                <div style="text-align: center; color: #fff; font-size: 16px">长按图片识别二维码</div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ldialog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nodejs-fs</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2017/04/18/nodejs/nodejs-async/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/07/13/css/css-grid-layout/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CSS3之Grid布局
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/04/17/nodejs/nodejs-fs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node.js的文件系统Api</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<div id="SOHUCS" sid="nodejs/nodejs-async" data-thread-key="nodejs/nodejs-async" data-title="Node.js之async-await使用" data-url="http://www.luojh.me/2017/04/18/nodejs/nodejs-async/"></div>
+	<script type="text/javascript">
+		(function(){
+			var appid = 'cyt0RTFO0';
+			var conf = 'prod_4b64393a245101a00ae308dc2dc1f012';
+			var width = window.innerWidth || document.documentElement.clientWidth;
+			if (width < 960) {
+				window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -254,9 +381,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

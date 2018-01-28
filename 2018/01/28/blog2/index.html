@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Tag: jquery | Luojh的博客</title>
+  <title>Hexo个人博客进阶-相册 | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luojh的博客">
-<meta property="og:url" content="http://www.luojh.me/tags/jquery/index.html">
+  <meta name="description" content="罗晶辉的个人博客,luo&apos;s secret">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo个人博客进阶-相册">
+<meta property="og:url" content="http://www.luojh.me/2018/01/28/blog2/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:description" content="罗晶辉的个人博客,luo&apos;s secret">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-3.png">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-4.png">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-5.png">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-7.png">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-6.png">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-8.png">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-9.png">
+<meta property="og:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blgo-10.png">
+<meta property="og:updated_time" content="2018-01-28T11:39:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta name="twitter:title" content="Hexo个人博客进阶-相册">
+<meta name="twitter:description" content="罗晶辉的个人博客,luo&apos;s secret">
+<meta name="twitter:image" content="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-3.png">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -163,68 +173,216 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-blog2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/06/ldialog/" class="archive-article-date">
-  	<time datetime="2016-06-06T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/06/ldialog/">LDialog-jquery弹窗插件</a>
+    <h1 class="article-title" itemprop="name">
+      Hexo个人博客进阶-相册
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/01/28/blog2/" class="archive-article-date">
+  	<time datetime="2018-01-28T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前写过一篇使用github+hexo搭建个人博客的教程，帮助了很多人实现了自己的博客网站，<a href="http://luojh.me/2017/02/08/blog1/" style="color: red" target="_blank" rel="external">传送门</a>。如果你还没有实现自己的博客网站，可以去看看。但是由于主题作者没有提供相册功能的具体实现，也是有很多人很疑惑，不断的向我提问，说怎么实现相册功能，今天我就详细的介绍一下怎么去实现这个功能。<a id="more"></a><br>首先，看看我们最终版的实现效果，<a href="http://luojh.me/instagram/" style="color: blue" target="_blank" rel="external">点击查看</a>，有了目标，才有一步一步的朝向目标前进的动力和方向。</p>
+<h3 id="重要前提"><a href="#重要前提" class="headerlink" title="重要前提"></a>重要前提</h3><p>由于使用了ins获取图片，ins在国内又被墙了，所以，接下来的一些操作需要自备梯子，没有梯子的同学也没关系，使用mac的同学，可以在app store搜索<code>vpn plus</code>(不是广告…)这个软件，可以免费使用vpn翻墙，就是速度跟蜗牛一样慢，其他系统的同学，自行查找可用的梯子吧。如果没有找到，那我也没办法了-_-</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>为了实现相册模块，需要准备的材料：</p>
+<ol>
+<li>获取ins提供的接口数据</li>
+<li>保存json数据和图片</li>
+<li>静态页面（使用ejs魔板）</li>
+<li>获取ins.js和ins.css</li>
+</ol>
+<p>有了上面四点准备材料，就大致完成了相册的功能，接下来就一步一步准备所需的材料。</p>
+<h3 id="一-获取ins提供的接口数据"><a href="#一-获取ins提供的接口数据" class="headerlink" title="一.获取ins提供的接口数据"></a>一.获取ins提供的接口数据</h3><p><a style="color: #333; font-size: 16px; font-weight: bold">1.1：获取client Id</a><br>根据instagram的developer页面，<a style="color: blue;" href="https://www.instagram.com/developer/" target="_blank" rel="external">Ins Developer</a>，我们需要首先<code>Register new Client ID</code>,<a href="https://www.instagram.com/developer/clients/manage/" style="color: blue" target="_blank" rel="external">注册客户端</a><br>可能需要填写手机验证，正常输入验证码即可进入这样的一个页面：<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-3.png"><br>按照字面意思填写相应的内容，client id就注册完成了。<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-4.png"></p>
+<p><a style="color: #333; font-size: 16px; font-weight: bold">1.2：获取token</a></p>
+<p>使用上一步注册好的client id获取token，在浏览器中执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://instagram.com/oauth/authorize/?client_id=&#123;CLIENT_ID&#125;&amp;redirect_uri=&#123;REDIRECT_URI&#125;&amp;response_type=token</div></pre></td></tr></table></figure></p>
+<p>替换两个花括号里面的值，<code>client_id</code>对应上一步获取的id，<code>redirect_uri</code>对应自己注册设定的重定向地址。<br>请求到之后会进入授权界面，授权完毕后会重定向到你设定的redirect_uri地址上面。请注意查看授权后的<code>url</code>，<code>hash</code>部分会附带给你对应的<code>token</code>，到现在为止，你已经成功的获取到了<code>token</code>。</p>
+<p><a style="color: #333; font-size: 16px; font-weight: bold">1.3：根据token获取Api</a></p>
+<p>拿到了<code>token</code>，就相当于你有了获取房间内容的钥匙，所以我们根据<code>token</code>去获取对应的api吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://api.instagram.com/v1/users/&#123;USER_ID&#125;/media/recent/?access_token=&#123;TOKEN&#125;</div></pre></td></tr></table></figure></p>
+<p>稍等，看这个url，会发现除了<code>token</code>，还需要一个参数：<code>user_id</code>，这又是什么鬼，wf，api里面也到处都是为难开发者的坑呀，但是也不怕，身为资深的程序🐶，这点小问题还是能够解决的吧，我们先试试我们ins账号的user_id：<code>guhuo2424</code>:<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-5.png"></p>
+<p>恩，我们似乎被骗了吧，为什么给我跳到了<code>404 not found page</code>。。。看来这个<code>user_id</code>非一般的id，还是使用google大法吧：</p>
+<p><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-7.png"></p>
+<p>果然还是有很多这样的神奇网站可供我们使用的，就选择第一个试试看吧：</p>
+<p><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-6.png"></p>
+<p>恩，输入了username和很弱智的验证问题后，终于看到了一个让人激动的期待已久的id，这看来就是我们所需要的，赶紧拿着这个id试试：<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-8.png"></p>
+<p>不容易呀，终于获得了我们所需要的接口信息。</p>
+<h3 id="二-保存json数据和图片"><a href="#二-保存json数据和图片" class="headerlink" title="二.保存json数据和图片"></a>二.保存json数据和图片</h3><p>第二步开始分析上一步所获取的json数据信息，通过接口数据格式我们发现，每一条ins状态，会对应一条对象数据，里面包含了我们所需的图片地址和对应的状态id，有了这两条数据，我们就可以开始保存对应的数据了。</p>
+<p>开始另起一个node项目，实现对json数据的保存和下载对应的缩略图和高清图，具体的代码我已经上传到github上了，这里有跳转链接：<a href="https://github.com/luojinghui/nodejs-ins" style="color: blue" target="_blank" rel="external">Air ticket</a>，请顺便给一个<a style="color: red">star</a>，谢谢</p>
+<p>通过运行node程序后，我们会在<code>source/img/photo</code>目录下面看到保存的对应的图片，其中包含min和正常的图片。<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-9.png"><br>在<code>source/_posts/instagram/</code>目录下面看到<code>ins.json</code>文件:<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blgo-10.png"></p>
+<h3 id="三-静态展示页面"><a href="#三-静态展示页面" class="headerlink" title="三.静态展示页面"></a>三.静态展示页面</h3><p>在项目的<code>source</code>目录创建一个<code>instagram</code>的文件夹，用作整个相册的入口文件。然后创建<code>index.ejs</code>文件。在其文件内复制下面code：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">layout: post</div><div class="line">slug: "photos"</div><div class="line">title: "相册"</div><div class="line">noDate: "true"</div><div class="line">comments: "true"</div><div class="line">---</div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./ins.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"instagram itemscope"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"archives album"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"img-box-ul"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.instagram.com/guhuo2424/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">class</span>=<span class="string">"open-ins"</span>&gt;</span>图片来自instagram，正在加载中…<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span></div><div class="line">	function add0(m)&#123;return m<span class="tag">&lt;<span class="name">10?'0'+m:m</span> &#125;;</span></div><div class="line">	<span class="attr">function</span> <span class="attr">getDate</span>(<span class="attr">timeString</span>) &#123;</div><div class="line">		<span class="attr">var</span> <span class="attr">time</span> = <span class="string">new</span> <span class="attr">Date</span>(<span class="attr">parseInt</span>(<span class="attr">timeString</span>) * <span class="attr">1000</span>);</div><div class="line">		<span class="attr">var</span> <span class="attr">y</span> = <span class="string">time.getFullYear();</span></div><div class="line">		<span class="attr">var</span> <span class="attr">m</span> = <span class="string">time.getMonth()+1;</span></div><div class="line">		<span class="attr">var</span> <span class="attr">d</span> = <span class="string">time.getDate();</span></div><div class="line">		<span class="attr">return</span> <span class="attr">y</span>+'<span class="attr">-</span>'+<span class="attr">add0</span>(<span class="attr">m</span>)+'<span class="attr">-</span>'+<span class="attr">add0</span>(<span class="attr">d</span>);</div><div class="line">	&#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">	(function() &#123;</div><div class="line">		var loadScript = function(path) &#123;</div><div class="line">			var $script = document.createElement('script')</div><div class="line">			document.getElementsByTagName('body')[0].appendChild($script)</div><div class="line">			$script.setAttribute('src', path)</div><div class="line">		&#125;</div><div class="line">		setTimeout(function() &#123;</div><div class="line">			loadScript('./ins.js')</div><div class="line">		&#125;, 0)</div><div class="line">	&#125;)()</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>关于代码头部定义的属性，不熟悉的同学参考：<a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">Hexo Document</a>，这段代码的主要意思是创建一个展示图片的页面，js部分实现了一个延迟加载<code>ins.js</code>的脚步，用来拉取并显示图片。</p>
+<h3 id="四-获取ins-js和ins-css"><a href="#四-获取ins-js和ins-css" class="headerlink" title="四.获取ins.js和ins.css"></a>四.获取ins.js和ins.css</h3><p>在上一步获取的node项目中，提供了<code>ins.js</code>和<code>ins.css</code>，将这两个文件放入<code>instagram</code>目录中。其中，js文件大致实现了获取<code>ins.json</code>中的数据，并循环遍历到页面中，具体的实现是在render函数中：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> render = <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> ulTmpl = <span class="string">""</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>, len2 = res.data.length; j &lt; len2; j++) &#123;</div><div class="line">        <span class="keyword">var</span> data = res.data[j];</div><div class="line">        <span class="keyword">var</span> liTmpl = <span class="string">""</span>;</div><div class="line"></div><div class="line">          <span class="keyword">var</span> minSrc = <span class="string">'/img/photo/'</span> + data.id + <span class="string">'.min.jpg'</span>;</div><div class="line">          <span class="keyword">var</span> src = <span class="string">'/img/photo/'</span> + data.id + <span class="string">'.jpg'</span>;</div><div class="line">          <span class="keyword">var</span> type = <span class="string">'image'</span>;</div><div class="line">          <span class="keyword">var</span> wrapText = data.caption || &#123;&#125;;</div><div class="line">          <span class="keyword">var</span> realText = wrapText.text || <span class="string">"么么哒~~"</span>;</div><div class="line"></div><div class="line">          liTmpl += <span class="string">'&lt;figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject"&gt;\</span></div><div class="line">                &lt;a href="' + src + <span class="string">'" itemprop="contentUrl" data-size="640x640" data-type="'</span> + type + <span class="string">'" data-target=".jpg"&gt;\</span></div><div class="line">                  &lt;img class="reward-img" data-type="' + type + <span class="string">'" data-src="'</span> + minSrc + <span class="string">'" src="'</span>+ minSrc +<span class="string">'" itemprop="thumbnail" onload="lzld(this)"&gt;\</span></div><div class="line">                  &lt;h1 class="year"&gt;'+ getDate(data.created_time) +<span class="string">'&lt;/h1&gt;\</span></div><div class="line">                &lt;/a&gt;\</div><div class="line">                &lt;figcaption style="display:none" itemprop="caption description"&gt;' + realText + <span class="string">'&lt;/figcaption&gt;\</span></div><div class="line">            &lt;/figure&gt;';</div><div class="line"></div><div class="line">        ulTmpl = ulTmpl +  liTmpl;</div><div class="line">      &#125;</div><div class="line">      <span class="built_in">document</span>.querySelector(<span class="string">'.img-box-ul'</span>).innerHTML = <span class="string">'&lt;div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery"&gt;'</span> + ulTmpl + <span class="string">'&lt;/div&gt;'</span>;</div><div class="line">      createVideoIncon();</div><div class="line">      _view2.default.init();</div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
+<p>最后，所有的准备工作就处理完成了，我们在<code>themes/yilia/_config.yml</code>的配置文件里面配置入口：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  主页: /</div><div class="line">  相册: /instagram/</div></pre></td></tr></table></figure></p>
+<p>使用<code>hexo server</code>启动本地调试，看看我们最终实现的效果吧，是不是很激动呢。</p>
+<h3 id="感言"><a href="#感言" class="headerlink" title="感言"></a>感言</h3><p>步骤还是很繁琐的，只有耐着性子的做完，才能看到最终的果实。身为程序员的我们，也必须拥有这样的耐性，去一步一步的尝试，即使失败，也会无憾。</p>
+<p>也非常感谢有ins这样的好的社交网站，给我们提供这些技术，相比于国内的社交网站，真的很缺少分享技术的意识，这应该就是社交产品真正的灵魂吧，让每个人都能够实现自己想要的效果。</p>
+<p>至此，这篇文章就分享结束啦，有不懂得同学可以下面留言。</p>
+<p>另外，很重要很重要很重要的是：给<code>nodejs-ins</code>的github项目一个<a style="color: red">Star✨</a>，非常非常非常感激。</p>
+<hr>
+<p>  转载请注明原地址，luojh的博客：<a href="http://luojh.me" target="_blank" rel="external">http://luojh.me</a> 谢谢！</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><p><br></p>
+<center>如果对你有用，请赞赏一个吧</center>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+	                  
+	                  <div class="reward-box-item">
+                      <img class="reward-img" src="/img/w2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+	                  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                  </div>
+	                <div style="text-align: center; color: #fff; font-size: 16px">长按图片识别二维码</div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Blog</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ldialog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">相册</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2018/01/28/blog2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/07/reactNative/reactNativeSendEvent2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React-Native开发之原生回调RN发送消息</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<div id="SOHUCS" sid="blog2" data-thread-key="blog2" data-title="Hexo个人博客进阶-相册" data-url="http://www.luojh.me/2018/01/28/blog2/"></div>
+	<script type="text/javascript">
+		(function(){
+			var appid = 'cyt0RTFO0';
+			var conf = 'prod_4b64393a245101a00ae308dc2dc1f012';
+			var width = window.innerWidth || document.documentElement.clientWidth;
+			if (width < 960) {
+				window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -254,9 +412,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
