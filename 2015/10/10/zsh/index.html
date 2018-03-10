@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.luojh.me">
-  <title>Tag: grid-layout | Luojh的博客</title>
+  <title>这么多年的zsh白用了... | Luojh的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Luojh的博客">
-<meta property="og:url" content="http://www.luojh.me/tags/grid-layout/index.html">
+  <meta name="description" content="zsh和bash的对比">
+<meta property="og:type" content="article">
+<meta property="og:title" content="这么多年的zsh白用了...">
+<meta property="og:url" content="http://www.luojh.me/2015/10/10/zsh/index.html">
 <meta property="og:site_name" content="Luojh的博客">
-<meta property="og:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta property="og:description" content="zsh和bash的对比">
+<meta property="og:updated_time" content="2018-03-10T15:18:48.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Luojh的博客">
-<meta name="twitter:description" content="骚年一枚,就职于锦囊,擅长各项前端技能，深入研究React,ReactNative开发。此为博客一枚。">
+<meta name="twitter:title" content="这么多年的zsh白用了...">
+<meta name="twitter:description" content="zsh和bash的对比">
   
     <link rel="alternative" href="/atom.xml" title="Luojh的博客" type="application/atom+xml">
   
@@ -163,64 +164,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-zsh" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/13/css/css-grid-layout/" class="archive-article-date">
-  	<time datetime="2017-07-13T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/13/css/css-grid-layout/">CSS3之Grid布局</a>
+    <h1 class="article-title" itemprop="name">
+      这么多年的zsh白用了...
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2015/10/10/zsh/" class="archive-article-date">
+  	<time datetime="2015-10-10T04:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="这么多年的zsh白用了…"><a href="#这么多年的zsh白用了…" class="headerlink" title="这么多年的zsh白用了…"></a>这么多年的zsh白用了…</h1><p>相信对于bash和zsh的区别，一般的人很少有去了解这两者间的区别到底在哪里，比如我，就是这么稀里糊涂的使用了好几年…今天，看到了一篇<a href="http://lostjs.com/2012/09/27/zsh/" target="_blank" rel="external">文章</a>，大致介绍了zsh和bash的区别，所以，今天就好好总结一下zsh相比于bash好处在哪里，为什么要使用zsh。</p>
+<a id="more"></a>
+<h4 id="zsh完全兼容bash"><a href="#zsh完全兼容bash" class="headerlink" title="zsh完全兼容bash"></a>zsh完全兼容bash</h4><p>兼容bash意味着我们不需要太多的学习成本去转换，对于基本的操作不需要改变。</p>
+<h4 id="zsh的补全模式更方便"><a href="#zsh的补全模式更方便" class="headerlink" title="zsh的补全模式更方便"></a>zsh的补全模式更方便</h4><p>zsh中按两下<code>tab</code>键即可触发补全功能，所有可能得结果会罗列出来，通过上下左右键或者继续<code>tab</code>键可以快速选中某一个选项。</p>
+<h4 id="zsh的命令选项补全功能"><a href="#zsh的命令选项补全功能" class="headerlink" title="zsh的命令选项补全功能"></a>zsh的命令选项补全功能</h4><p>zsh中除了有目录的补全，还有对于命令的补全模式，例如：<code>ls -&lt;...&gt;</code>会列出所有<code>-</code>后面可以补全的参数列表，再也不会因为忘记命令而去搜索得到结果。<br>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install q</div><div class="line">//会列出所有q开头的软件</div></pre></td></tr></table></figure></p>
+<h4 id="zsh支持更加智能的目录补全"><a href="#zsh支持更加智能的目录补全" class="headerlink" title="zsh支持更加智能的目录补全"></a>zsh支持更加智能的目录补全</h4><p>比如你忘记了目录的具体名称，<code>/Users/luojinghui/projects/react2/react-native-cnblogs</code>,在zsh家目录下面，你只需要输入：<code>cd p/r/react-native-cnblogs</code>即可进入具体的目录。</p>
+<h4 id="强大的目录切换（使用autojump也可实现）"><a href="#强大的目录切换（使用autojump也可实现）" class="headerlink" title="强大的目录切换（使用autojump也可实现）"></a>强大的目录切换（使用autojump也可实现）</h4><p>如果在一个zsh下面需要两个目录来回切换，那么zsh会记录你的切换路径，然后通过数字：1，2，3…可以快速切换上一次的访问路径，数字一直可以到9，如果记不清哪一个数据对应的路径，那么可以使用<code>d</code>快速查看。</p>
+<p>zsh 还可以配合 <code>autojump</code> 一起使用，<code>autojump</code> 会记录下每一个你访问过的目录，然后通过 <code>j</code> 来快速跳转。</p>
+<h4 id="zsh-支持全局-alias-和后缀名-alias"><a href="#zsh-支持全局-alias-和后缀名-alias" class="headerlink" title="zsh 支持全局 alias 和后缀名 alias"></a>zsh 支持全局 alias 和后缀名 alias</h4><p>zsh可以通过配置slias，进一步缩写命令，并且可以快速打开软件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">alias web2=&apos;open -a &quot;WebStorm&quot;&apos;</div><div class="line">alias web=&apos;open -a &quot;WebStorm 2&quot;&apos;</div><div class="line">alias idea=&apos;open -a &quot;IntelliJ IDEA 14&quot;&apos;</div><div class="line">alias chrome=&apos;open -a &quot;Google Chrome&quot;&apos;</div><div class="line">alias home=&apos;cd ~&apos;</div></pre></td></tr></table></figure></p>
+<h4 id="zsh-有着丰富多彩的命令行提示符"><a href="#zsh-有着丰富多彩的命令行提示符" class="headerlink" title="zsh 有着丰富多彩的命令行提示符"></a>zsh 有着丰富多彩的命令行提示符</h4><p>而 zsh 更进一步，可以实现诸如多行提示符、提示符右对齐等功能。oh-my-zsh 配置文件中提供了非常丰富的提示符 theme 供选择，并且，还可以显示项目的git分支。</p>
+<p>以上是使用zsh的一部分原因，还需要继续发觉更多的快捷操作。为了更方便的使用zsh，需要我们安装oh-my-zsh。</p>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh#the-manual-way" target="_blank" rel="external">官网</a></p>
+<h3 id="常用的插件"><a href="#常用的插件" class="headerlink" title="常用的插件"></a>常用的插件</h3><ul>
+<li><p>autojump<br>帮助快速目录跳转的小工具。首先要安装 autojump，然后在 .zshrc 中开启 autojump 插件。它会记录下来每个你进入过的目录，随后通过 j 目录名称的一部分 就可快速跳转到该目录。</p>
+</li>
+<li><p>git<br>Git 命令补全，除了可以补全 git 的子命令、命令开关等常规补全项以外，还可以补全分支名等内容，用 git 必开的插件。</p>
+</li>
+<li><p>web-search<br>快速在zsh中通过关键字使用对应的搜索引擎搜索结果。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">google JavaScript</div><div class="line">baidu JavaScript</div><div class="line">github JavaScript</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>然后会快速使用浏览器打开结果页面，非常方便。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><br></h2><p><br></p>
+<center>一生最重 不过饱餐与被爱</center>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+	                  
+	                  <div class="reward-box-item">
+                      <img class="reward-img" src="/img/w2.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+	                  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                  </div>
+	                <div style="text-align: center; color: #fff; font-size: 16px">长按图片识别二维码</div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">grid-layout</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">zsh</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.luojh.me/2015/10/10/zsh/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/12/28/blog1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hexo搭建个人博客-初始化
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<div id="SOHUCS" sid="zsh" data-thread-key="zsh" data-title="这么多年的zsh白用了..." data-url="http://www.luojh.me/2015/10/10/zsh/"></div>
+	<script type="text/javascript">
+		(function(){
+			var appid = 'cyt0RTFO0';
+			var conf = 'prod_4b64393a245101a00ae308dc2dc1f012';
+			var width = window.innerWidth || document.documentElement.clientWidth;
+			if (width < 960) {
+				window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -250,9 +388,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

@@ -219,7 +219,7 @@
 <h3 id="二-保存json数据和图片"><a href="#二-保存json数据和图片" class="headerlink" title="二.保存json数据和图片"></a>二.保存json数据和图片</h3><p>第二步开始分析上一步所获取的json数据信息，通过接口数据格式我们发现，每一条ins状态，会对应一条对象数据，里面包含了我们所需的图片地址和对应的状态id，有了这两条数据，我们就可以开始保存对应的数据了。</p>
 <p>开始另起一个node项目，实现对json数据的保存和下载对应的缩略图和高清图，具体的代码我已经上传到github上了，这里有跳转链接：<a href="https://github.com/luojinghui/nodejs-ins" style="color: blue" target="_blank" rel="external">Air ticket</a>，请顺便给一个<a style="color: red">star</a>，谢谢</p>
 <p>通过运行node程序后，我们会在<code>source/img/photo</code>目录下面看到保存的对应的图片，其中包含min和正常的图片。<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blog-9.png"><br>在<code>source/_posts/instagram/</code>目录下面看到<code>ins.json</code>文件:<br><img src="http://ol5l1z7pa.bkt.clouddn.com/blog/blgo-10.png"></p>
-<h3 id="三-静态展示页面"><a href="#三-静态展示页面" class="headerlink" title="三.静态展示页面"></a>三.静态展示页面</h3><p>在项目的<code>source</code>目录创建一个<code>instagram</code>的文件夹，用作整个相册的入口文件。然后创建<code>index.ejs</code>文件。在其文件内复制下面code：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">layout: post</div><div class="line">slug: "photos"</div><div class="line">title: "相册"</div><div class="line">noDate: "true"</div><div class="line">comments: "true"</div><div class="line">---</div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./ins.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"instagram itemscope"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"archives album"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"img-box-ul"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.instagram.com/guhuo2424/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">class</span>=<span class="string">"open-ins"</span>&gt;</span>图片来自instagram，正在加载中…<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">add0</span>(<span class="params">m</span>)</span>&#123;<span class="keyword">return</span> m&lt;<span class="number">10</span>?<span class="string">'0'</span>+m:m &#125;;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">getDate</span>(<span class="params">timeString</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">parseInt</span>(timeString) * <span class="number">1000</span>);</div><div class="line">		<span class="keyword">var</span> y = time.getFullYear();</div><div class="line">		<span class="keyword">var</span> m = time.getMonth()+<span class="number">1</span>;</div><div class="line">		<span class="keyword">var</span> d = time.getDate();</div><div class="line">		<span class="keyword">return</span> y+<span class="string">'-'</span>+add0(m)+<span class="string">'-'</span>+add0(d);</div><div class="line">	&#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">	(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> loadScript = <span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> $script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</div><div class="line">			<span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>].appendChild($script)</div><div class="line">			$script.setAttribute(<span class="string">'src'</span>, path)</div><div class="line">		&#125;</div><div class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			loadScript(<span class="string">'./ins.js'</span>)</div><div class="line">		&#125;, <span class="number">0</span>)</div><div class="line">	&#125;)()</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="三-静态展示页面"><a href="#三-静态展示页面" class="headerlink" title="三.静态展示页面"></a>三.静态展示页面</h3><p>在项目的<code>source</code>目录创建一个<code>instagram</code>的文件夹，用作整个相册的入口文件。然后创建<code>index.ejs</code>文件。在其文件内复制下面code：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">layout: post</div><div class="line">slug: "photos"</div><div class="line">title: "相册"</div><div class="line">noDate: "true"</div><div class="line">comments: "true"</div><div class="line">---</div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./ins.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"instagram itemscope"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"archives album"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"img-box-ul"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.instagram.com/guhuo2424/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> <span class="attr">class</span>=<span class="string">"open-ins"</span>&gt;</span>图片来自instagram，正在加载中…<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span></div><div class="line">	function add0(m)&#123;return m<span class="tag">&lt;<span class="name">10?'0'+m:m</span> &#125;;</span></div><div class="line">	<span class="attr">function</span> <span class="attr">getDate</span>(<span class="attr">timeString</span>) &#123;</div><div class="line">		<span class="attr">var</span> <span class="attr">time</span> = <span class="string">new</span> <span class="attr">Date</span>(<span class="attr">parseInt</span>(<span class="attr">timeString</span>) * <span class="attr">1000</span>);</div><div class="line">		<span class="attr">var</span> <span class="attr">y</span> = <span class="string">time.getFullYear();</span></div><div class="line">		<span class="attr">var</span> <span class="attr">m</span> = <span class="string">time.getMonth()+1;</span></div><div class="line">		<span class="attr">var</span> <span class="attr">d</span> = <span class="string">time.getDate();</span></div><div class="line">		<span class="attr">return</span> <span class="attr">y</span>+'<span class="attr">-</span>'+<span class="attr">add0</span>(<span class="attr">m</span>)+'<span class="attr">-</span>'+<span class="attr">add0</span>(<span class="attr">d</span>);</div><div class="line">	&#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">	(function() &#123;</div><div class="line">		var loadScript = function(path) &#123;</div><div class="line">			var $script = document.createElement('script')</div><div class="line">			document.getElementsByTagName('body')[0].appendChild($script)</div><div class="line">			$script.setAttribute('src', path)</div><div class="line">		&#125;</div><div class="line">		setTimeout(function() &#123;</div><div class="line">			loadScript('./ins.js')</div><div class="line">		&#125;, 0)</div><div class="line">	&#125;)()</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>关于代码头部定义的属性，不熟悉的同学参考：<a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">Hexo Document</a>，这段代码的主要意思是创建一个展示图片的页面，js部分实现了一个延迟加载<code>ins.js</code>的脚步，用来拉取并显示图片。</p>
 <h3 id="四-获取ins-js和ins-css"><a href="#四-获取ins-js和ins-css" class="headerlink" title="四.获取ins.js和ins.css"></a>四.获取ins.js和ins.css</h3><p>在上一步获取的node项目中，提供了<code>ins.js</code>和<code>ins.css</code>，将这两个文件放入<code>instagram</code>目录中。其中，js文件大致实现了获取<code>ins.json</code>中的数据，并循环遍历到页面中，具体的实现是在render函数中：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> render = <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> ulTmpl = <span class="string">""</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>, len2 = res.data.length; j &lt; len2; j++) &#123;</div><div class="line">        <span class="keyword">var</span> data = res.data[j];</div><div class="line">        <span class="keyword">var</span> liTmpl = <span class="string">""</span>;</div><div class="line"></div><div class="line">          <span class="keyword">var</span> minSrc = <span class="string">'/img/photo/'</span> + data.id + <span class="string">'.min.jpg'</span>;</div><div class="line">          <span class="keyword">var</span> src = <span class="string">'/img/photo/'</span> + data.id + <span class="string">'.jpg'</span>;</div><div class="line">          <span class="keyword">var</span> type = <span class="string">'image'</span>;</div><div class="line">          <span class="keyword">var</span> wrapText = data.caption || &#123;&#125;;</div><div class="line">          <span class="keyword">var</span> realText = wrapText.text || <span class="string">"么么哒~~"</span>;</div><div class="line"></div><div class="line">          liTmpl += <span class="string">'&lt;figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject"&gt;\</span></div><div class="line">                &lt;a href="' + src + <span class="string">'" itemprop="contentUrl" data-size="640x640" data-type="'</span> + type + <span class="string">'" data-target=".jpg"&gt;\</span></div><div class="line">                  &lt;img class="reward-img" data-type="' + type + <span class="string">'" data-src="'</span> + minSrc + <span class="string">'" src="'</span>+ minSrc +<span class="string">'" itemprop="thumbnail" onload="lzld(this)"&gt;\</span></div><div class="line">                  &lt;h1 class="year"&gt;'+ getDate(data.created_time) +<span class="string">'&lt;/h1&gt;\</span></div><div class="line">                &lt;/a&gt;\</div><div class="line">                &lt;figcaption style="display:none" itemprop="caption description"&gt;' + realText + <span class="string">'&lt;/figcaption&gt;\</span></div><div class="line">            &lt;/figure&gt;';</div><div class="line"></div><div class="line">        ulTmpl = ulTmpl +  liTmpl;</div><div class="line">      &#125;</div><div class="line">      <span class="built_in">document</span>.querySelector(<span class="string">'.img-box-ul'</span>).innerHTML = <span class="string">'&lt;div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery"&gt;'</span> + ulTmpl + <span class="string">'&lt;/div&gt;'</span>;</div><div class="line">      createVideoIncon();</div><div class="line">      _view2.default.init();</div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
 <p>最后，所有的准备工作就处理完成了，我们在<code>themes/yilia/_config.yml</code>的配置文件里面配置入口：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  主页: /</div><div class="line">  相册: /instagram/</div></pre></td></tr></table></figure></p>
@@ -478,10 +478,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Book</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
               </li>
              
@@ -491,6 +487,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">相册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Book</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +510,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">相册</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">zsh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,23 +522,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">EventLoop</a>
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nodejs-fs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color2">grid-layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,11 +550,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+                <a href="javascript:void(0)" class="js-tag color5">EventLoop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nodejs-fs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,10 +591,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">grid-layout</a>
               </li>
             
             <div class="clearfix"></div>
